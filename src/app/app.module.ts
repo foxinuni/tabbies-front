@@ -13,6 +13,8 @@ import { CardComponent as ServiceCardComponent } from './home/services/card/card
 import { TestimoniesComponent } from './home/testimonies/testimonies.component';
 import { CardComponent as TestimonyCardComponent } from './home/testimonies/card/card.component';
 import { ContactComponent } from './home/contact/contact.component';
+import { AdminComponent } from './admin/admin.component';
+import { HeaderComponent as AdminHeaderComponent } from './admin/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ContactComponent } from './home/contact/contact.component';
     ServiceCardComponent,
     TestimoniesComponent,
     TestimonyCardComponent,
-    ContactComponent
+    ContactComponent,
+    AdminComponent,
+    AdminHeaderComponent,
   ],
   imports: [
     BrowserModule,
