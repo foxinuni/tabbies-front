@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", sans-serif;
+	font-size: 1em;
+	line-height: 1.5;
+	scroll-padding-top: 4em;
+	scroll-behavior: smooth;
+}
+
+/* Box model */
+* {
+	box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(50%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* General components */
+.btn-primary,
+.btn-secondary {
+    /* Spacing */
+    padding: 0.5em 1em;
+    margin: 0 0.5em;
+    border-radius: 5px;
+
+    /* Text */
+    text-decoration: none;
+
+    /* Shadow */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+    /* Border and Background Reset for Buttons */
+    border: none;
+    background: inherit;
+
+    /* Font Inheritance */
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+
+    /* Cursor */
+    cursor: pointer;
+}
+
+.btn-primary {
+	/* Background */
+	background-color: rgb(249.8275862069, 147.6724137931, 147.6724137931);
+
+	/* Text */
+	color: #fdfdfd;
+}
+
+.btn-primary:hover {
+    /* Hover */
+	background-color: rgb(248.6551724138, 123.3448275862, 123.3448275862);
+}
+
+.btn-secondary {
+	/* Background */
+	background-color: #8895ea;
+
+	/* Text */
+	
+    color: #fdfdfd;
+}
+
+.btn-secondary:hover {
+    /* Hover */
+	background-color: rgb(92.65, 110.3857142857, 226.35);
+}

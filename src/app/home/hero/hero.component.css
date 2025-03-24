@@ -1,0 +1,87 @@
+.hero {
+	/* Background */
+	background-image: url("/assets/images/banner-hero.png");
+	background-size: cover;
+	background-position: center;
+	background-color: #fdfdfd;
+
+	/* Padding / Spacing */
+	padding: 2em;
+	margin: 0;
+	height: calc(100vh - 4em);
+
+	/* Text */
+	color: #404040;
+	text-align: center;
+
+	/* Display */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	/* Hide the images when scrolling */
+	overflow: hidden;
+}
+
+.hero .left,
+.hero .right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	/* Height to 100% */
+	height: 100%;
+}
+
+.hero .left {
+	flex-grow: 1;
+    
+	/* Animations */
+	animation: fadeIn 1s ease-in-out;
+}
+
+.hero .right {
+	/* Animation a bit later */
+	opacity: 0;
+	animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+.hero .right img {
+	/* Spacing */
+	height: 100%;
+	border-radius: 5px;
+}
+
+.hero h1 {
+	/* Font */
+	font-family: "Pacifico", cursive;
+	font-size: 8em;
+	/* Spacing */
+	margin: 0;
+	/* Text */
+	color: #fbacac;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+	/* Font */
+	font-size: 1.5em;
+	/* Spacing */
+	margin-bottom: 2em;
+	/* Text */
+	color: #404040;
+}
+
+@media screen and (max-width: 768px) {
+	.hero {
+		flex-direction: column;
+	}
+	.hero .left {
+		width: 100%;
+	}
+	.hero .right {
+		display: none;
+	}
+}

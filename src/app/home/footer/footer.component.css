@@ -1,0 +1,91 @@
+/* Footer */
+footer {
+	/* Background */
+	background-color: #fbacac;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+
+	/* Spacing */
+	padding: 1em;
+
+	/* Text */
+	color: #fdfdfd;
+	text-align: center;
+
+	/* Display */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+footer div {
+	/* Spacing */
+	margin: 0 1em;
+	padding: 0 1em;
+
+	/* Display */
+	display: flex;
+	flex-direction: column;
+}
+footer div h1 {
+	/* Font */
+	font-size: 1.5em;
+
+	/* Spacing */
+	margin-bottom: 0.25em;
+
+	/* Text */
+	color: #fdfdfd;
+	text-align: start;
+}
+footer div a {
+	/* Text */
+	color: #fdfdfd;
+	text-decoration: none;
+	text-align: start;
+}
+
+footer div a:hover {
+	/* Hover */
+	color: #fbacac;
+}
+
+footer p {
+	/* Spacing */
+	margin: 0 1em;
+}
+
+footer a {
+	/* Text */
+	color: #fdfdfd;
+	text-decoration: none;
+}
+
+/* Hover */
+footer a:hover {
+	color: #fbacac;
+}
+
+footer .copyright h1 {
+	/* Font */
+	font-family: "Pacifico", cursive;
+	font-size: 2em;
+	/* Spacing */
+	margin: 0;
+	/* Text */
+	color: #fdfdfd;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	text-align: center;
+}
+
+footer .redes a {
+	/* Spacing */
+	margin: 0 0.25em;
+}
+
+footer .divider {
+	padding: 0;
+	margin: 0;
+	width: 2px;
+	border: 1px solid #fdfdfd;
+}
