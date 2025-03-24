@@ -1,0 +1,46 @@
+.services {
+	/* Padding / Spacing */
+	padding: 2em;
+	margin: 0;
+	min-height: calc(100vh - 4em);
+
+    /* Text */
+	color: #404040;
+	text-align: center;
+
+    /* Display */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.services h2 {
+	/* Font */
+	font-size: 3em;
+
+    /* Spacing */
+	margin: 0 0 1em;
+
+    /* Text */
+	color: #404040;
+}
+
+.services p {
+	/* Font */
+	font-size: 1.5em;
+
+    /* Spacing */
+	margin-bottom: 2em;
+
+    /* Text */
+	color: #404040;
+}
+
+.services article {
+	/* Display */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}

@@ -7,6 +7,12 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './home/header/header.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { HeroComponent } from './home/hero/hero.component';
+import { AboutComponent } from './home/about/about.component';
+import { ServicesComponent } from './home/services/services.component';
+import { CardComponent as ServiceCardComponent } from './home/services/card/card.component';
+import { TestimoniesComponent } from './home/testimonies/testimonies.component';
+import { CardComponent as TestimonyCardComponent } from './home/testimonies/card/card.component';
+import { ContactComponent } from './home/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +21,12 @@ import { HeroComponent } from './home/hero/hero.component';
     HeaderComponent,
     FooterComponent,
     HeroComponent,
+    AboutComponent,
+    ServicesComponent,
+    ServiceCardComponent,
+    TestimoniesComponent,
+    TestimonyCardComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
