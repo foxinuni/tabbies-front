@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +17,8 @@ import { CreateComponent } from './admin/pets/create/create.component';
 import { EditComponent } from './admin/pets/edit/edit.component';
 import { ViewComponent } from './admin/pets/view/view.component';
 import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
+import { HeaderComponent as AdminHeaderComponent } from './admin/header/header.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { FormsModule } from '@angular/forms';
     ListingComponent,
     CreateComponent,
     EditComponent,
-    ViewComponent
+    ViewComponent,
+    AdminComponent,
+    AdminHeaderComponent,
   ],
   imports: [
     BrowserModule,
