@@ -1,5 +1,25 @@
+section {
+    width: 100%;
+    height: calc(100vh - 4em);
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "aside main";
+}
+
 aside {
     width: 400px;
     height: 100%;
     border-right: 1px solid #e0e0e0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+
+    padding: 40px 20px;
 }

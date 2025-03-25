@@ -13,6 +13,7 @@ import { TestimoniesComponent } from './home/testimonies/testimonies.component';
 import { CardComponent as TestimonyCardComponent } from './home/testimonies/card/card.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { AdminModule } from './admin/admin.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AdminModule } from './admin/admin.module';
     TestimoniesComponent,
     TestimonyCardComponent,
     ContactComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
