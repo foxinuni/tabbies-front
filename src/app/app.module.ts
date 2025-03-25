@@ -13,6 +13,11 @@ import { CardComponent as ServiceCardComponent } from './home/services/card/card
 import { TestimoniesComponent } from './home/testimonies/testimonies.component';
 import { CardComponent as TestimonyCardComponent } from './home/testimonies/card/card.component';
 import { ContactComponent } from './home/contact/contact.component';
+import { ListingComponent } from './admin/pets/listing/listing.component';
+import { CreateComponent } from './admin/pets/create/create.component';
+import { EditComponent } from './admin/pets/edit/edit.component';
+import { ViewComponent } from './admin/pets/view/view.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +31,16 @@ import { ContactComponent } from './home/contact/contact.component';
     ServiceCardComponent,
     TestimoniesComponent,
     TestimonyCardComponent,
-    ContactComponent
+    ContactComponent,
+    ListingComponent,
+    CreateComponent,
+    EditComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

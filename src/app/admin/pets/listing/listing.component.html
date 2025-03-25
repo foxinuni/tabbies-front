@@ -1,0 +1,46 @@
+<main>
+    <home-header></home-header>
+    <section class="pet-listing">
+        <h1>Lista de Mascotas</h1>
+        <a routerLink="/admin/pets/add" class="btn btn-primary">Crear Mascota</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre Gatuno</th>
+                    <th>Raza</th>
+                    <th>Peso (kg)</th>
+                    <th>Nacimiento</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pet of pets">
+                    <td>{{ pet.name }}</td>
+                    <td>{{ pet.breed }}</td>
+                    <td>{{ pet.weight }}</td>
+                    <td>{{ pet.birthDate | date:'dd-MM-yyyy' }}</td>
+                    <td class="center">
+                        <a [routerLink]="['/admin/pets', pet.id]" class="btn btn-primary" *ngIf="!pet.isDisabled">Detalles</a>
+
+                        <button 
+                            class="btn btn-secondary"
+                            (click)="toggleStatus(pet.id, false)"
+                            *ngIf="!pet.isDisabled"
+                        >
+                            Desactivar
+                        </button>
+
+                        <button 
+                            class="btn btn-secondary"
+                            (click)="toggleStatus(pet.id, true)"
+                            *ngIf="pet.isDisabled"
+                        >
+                            Activar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <home-footer></home-footer>
+</main>

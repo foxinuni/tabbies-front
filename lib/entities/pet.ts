@@ -10,5 +10,5 @@ export default interface Pet {
     birthDate: Date;
     isDisabled: boolean;
     owner: User;
-    disease: Disease;
+    disease?: Disease;
 }
