@@ -13,7 +13,7 @@ const routes: Routes = [
 		children: [
             { path: '', redirectTo: 'pets', pathMatch: 'full' },
 			{ path: 'pets', component: PetListingComponent },
-			{ path: 'pets/create', component: PetCreateComponent },
+			{ path: 'pets/add', component: PetCreateComponent },
 			{ path: 'pets/:id', component: PetViewComponent },
 			{ path: 'pets/:id/edit', component: PetEditComponent },
 		],
