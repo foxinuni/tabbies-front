@@ -1,7 +1,8 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import Pet from 'lib/entities/pet';
 import { PetService } from 'src/app/services/pet.service';
+import Pet from 'lib/entities/pet';
 
 @Component({
   selector: 'app-edit',
@@ -11,11 +12,7 @@ import { PetService } from 'src/app/services/pet.service';
 export class EditComponent {
   pet: Pet | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private petService: PetService
-  ) {}
-
+  constructor(private route: ActivatedRoute, private petService: PetService, private router: Router) {}
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -25,6 +22,7 @@ export class EditComponent {
   updatePet() {
     if (this.pet) {
       this.petService.updatePet(this.pet.id, this.pet);
+      this.router.navigate(['/admin/pets', this.pet.id]);
     }
   }
 }

@@ -12,13 +12,7 @@ import { CardComponent as ServiceCardComponent } from './home/services/card/card
 import { TestimoniesComponent } from './home/testimonies/testimonies.component';
 import { CardComponent as TestimonyCardComponent } from './home/testimonies/card/card.component';
 import { ContactComponent } from './home/contact/contact.component';
-import { ListingComponent } from './admin/pets/listing/listing.component';
-import { CreateComponent } from './admin/pets/create/create.component';
-import { EditComponent } from './admin/pets/edit/edit.component';
-import { ViewComponent } from './admin/pets/view/view.component';
-import { FormsModule } from '@angular/forms';
-import { AdminComponent } from './admin/admin.component';
-import { HeaderComponent as AdminHeaderComponent } from './admin/header/header.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -33,17 +27,11 @@ import { HeaderComponent as AdminHeaderComponent } from './admin/header/header.c
     TestimoniesComponent,
     TestimonyCardComponent,
     ContactComponent,
-    ListingComponent,
-    CreateComponent,
-    EditComponent,
-    ViewComponent,
-    AdminComponent,
-    AdminHeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

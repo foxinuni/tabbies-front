@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Pet from 'lib/entities/pet';
 import { PetService } from 'src/app/services/pet.service';
+import Pet from 'lib/entities/pet';
 
 @Component({
   selector: 'app-listing',
@@ -18,6 +18,7 @@ export class ListingComponent implements OnInit {
 
   toggleStatus(id: number, active: boolean) {
     this.petService.setActive(id, active);
-    this.pets = this.petService.getAllPets();}
+    this.pets = this.petService.getAllPets();
   }
+}
 

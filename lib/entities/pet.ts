@@ -9,6 +9,6 @@ export default interface Pet {
     picture: string;
     birthDate: Date;
     isDisabled: boolean;
-    owner: User;
+    owner?: User;
     disease?: Disease;
 }
