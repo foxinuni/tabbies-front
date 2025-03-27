@@ -42,7 +42,7 @@ body {
 
     /* Border and Background Reset for Buttons */
     border: none;
-    background: inherit;
+
 
     /* Font Inheritance */
     font-family: inherit;
@@ -71,7 +71,7 @@ body {
 	background-color: #8895ea;
 
 	/* Text */
-	
+
     color: #fdfdfd;
 }
 

@@ -1,27 +1,20 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, sans-serif;
+:host {
+    display: contents;
+    width: 100%;
 }
 
 section {
-    background-image: url("/src/assets/images/bgTest.png");
+    background-image: url("/assets/images/bgTest.png");
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
 
-/* Ajustar el contenedor */
-.container {
-    width: 100%;
-    max-width: 80rem; /* Ajusta este valor según sea necesario */
-    padding: 0 2rem; /* Añadir padding para evitar que el contenido toque los bordes */
+		width: 100%;
+    padding: 4rem;
+    display: flex;
+		flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 
 /* Ajustar la tarjeta */
@@ -31,8 +24,7 @@ section {
     border-radius: 1.5rem;
     overflow: hidden;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 100%; /* Ajusta este valor según sea necesario */
+    width: 550px; /* Ajusta este valor según sea necesario */
 }
 
 .top-section {
@@ -51,6 +43,12 @@ section {
     margin-top: 1rem;
 }
 
+.top-section .img-con {
+		width: 12rem;
+		height: 12rem;
+		transform: translate(0, -10%);
+}
+
 .top-section img {
     width: 12rem;
     height: 12rem;
@@ -58,9 +56,8 @@ section {
     object-fit: cover;
     object-position: center;
 
-    border: 2px solid white;
+    border: 1px solid white;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
 }
 
 .bottom-section {
@@ -75,7 +72,7 @@ section {
     flex: 1;
 }
 
-.pet-info p{
+.pet-info p {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;

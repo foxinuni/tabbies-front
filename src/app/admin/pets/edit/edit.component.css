@@ -1,163 +1,176 @@
-/* Page colors */
-/* Pastel colors */
-span {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-/*section {
-    background-image: url("../assets/bgTest2.png"), url("../assets/bgTest.png");
-    background-position: top left, bottom;
-    background-repeat: no-repeat, repeat-x;
-    background-size: auto, auto;
-    background-color: white;
-  
+:host {
+	display: contents;
+	width: 100%;
+}
 
-    
-  }
-  
-  main {
-    background-image: url("../assets/bgTest3.png");
-    background-position: center right;
-    background-repeat: no-repeat;
-  }
-  */ 
-  
-  form {
-    width: 100%;
-    padding: 30px;
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  form span {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  form label {
-    margin: 10px 0;
-    width: 100%;
-    margin-right: 10px;
-  }
-  
-  form input,
-  form select {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  form button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #FBACAC;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background-color: #8895EA;
-  }
-  
-  .pet-listing {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .pet-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .pet-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 600px;
-    width: 75%;
-    margin: 20px 0;
-    border-radius: 8px;
-    background-color: #FBACAC;
-  }
-  
-  .pet-info .aside {
-    width: 100%;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .pet-info img {
-    object-fit: cover;
-    object-position: center;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    height: 600px;
-    width: 100%;
-  }
-  
-  .pet-info form {
-    height: 600px;
-    width: 100%;
-    padding: 20px 40px;
-  }
-  
-  /*# sourceMappingURL=pets.css.map */
-  
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-  }
-  
-  .delete-form {
-    display: inline-block;
-    width: auto;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .pet-form {
-    padding: 1%;
-    width: 80%;
-    height: 80%;
-    margin-bottom: 150px;
-    background-color: #dddddd6a;
-  }
-  
-  form span {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  form span > div {
-    padding: 0 5px;
-  }
-  
-  form span > div.left {
-    padding: 0 5px 0 0;
-  }
-  
-  form span > div.right {
-    padding: 0 0 0 5px;
-  }
+span {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+section {
+	background-image: url("/assets/images/bgTest2.png"),
+		url("/assets/images/bgTest.png");
+	background-position: top left, bottom;
+	background-repeat: no-repeat, no-repeat;
+	background-size: auto, cover;
+	background-color: white;
+
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+
+	padding: 4em;
+}
+
+.form {
+  display: flex;
+	flex-direction: column;
+  background-color: #fdfdfd;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+form {
+	width: 100%;
+	padding: 30px;
+	margin: 20px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+form span {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+form label {
+	margin: 10px 0;
+	width: 100%;
+	margin-right: 10px;
+}
+
+form input,
+form select {
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+form button {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: none;
+	border-radius: 5px;
+	background-color: #fbacac;
+	color: white;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+form button:hover {
+	background-color: #8895ea;
+}
+
+.pet-listing {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px 0;
+}
+
+.pet-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px 0;
+}
+
+.pet-info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 600px;
+	width: 75%;
+	margin: 20px 0;
+	border-radius: 8px;
+	background-color: #fbacac;
+}
+
+.pet-info .aside {
+	width: 100%;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.pet-info img {
+	object-fit: cover;
+	object-position: center;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	height: 600px;
+	width: 100%;
+}
+
+.pet-info form {
+	height: 600px;
+	width: 100%;
+	padding: 20px 40px;
+}
+
+/*# sourceMappingURL=pets.css.map */
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.delete-form {
+	display: inline-block;
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.pet-form {
+	padding: 1%;
+	width: 80%;
+	height: 80%;
+	margin-bottom: 150px;
+	background-color: #dddddd6a;
+}
+
+form span {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+form span > div {
+	padding: 0 5px;
+}
+
+form span > div.left {
+	padding: 0 5px 0 0;
+}
+
+form span > div.right {
+	padding: 0 0 0 5px;
+}

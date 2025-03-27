@@ -1,33 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, sans-serif;
+:host {
+	display: contents;
+	width: 100%;
 }
 
-section{
-  background-image: url("/src/assets/images/backCreate.png");
-  background-size: 90%;
+section {
+  background-image: url("/assets/images/backCreate.png");
+  background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
-}
 
-.container-forms {
-  max-width: 100%;
-  margin-top: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	padding: 4em;
 }
 
 .card {
   display: flex;
+	flex-direction: column;
   background-color: #fdfdfd;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 700px;
   border-radius: 8px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
