@@ -9,6 +9,7 @@ import { CreateComponent as PetCreateComponent } from './pets/create/create.comp
 import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ListingComponent } from './users/listing/listing.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     PetEditComponent,
     PetViewComponent,
     SidebarComponent,
+    ListingComponent,
   ],
   imports: [
     CommonModule,

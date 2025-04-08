@@ -5,6 +5,7 @@ import { CreateComponent as PetCreateComponent } from './pets/create/create.comp
 import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { AdminComponent } from './admin.component';
+import { ListingComponent as UserListingComponent } from './users/listing/listing.component';
 
 const routes: Routes = [
 	{
@@ -16,6 +17,7 @@ const routes: Routes = [
 			{ path: 'pets/add', component: PetCreateComponent },
 			{ path: 'pets/:id', component: PetViewComponent },
 			{ path: 'pets/:id/edit', component: PetEditComponent },
+			{ path: 'users', component: UserListingComponent },
 		],
 	},
 ];

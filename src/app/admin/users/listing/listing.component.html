@@ -1,0 +1,31 @@
+<section>
+	<h1>Lista de Mascotas</h1>
+	<a routerLink="/admin/pets/add" class="btn btn-primary">Crear Mascota</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>documento</th>
+				<th>email</th>
+				<th>number</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of Users">
+				<td>{{ user.name }}</td>
+				<td>{{ user.document }}</td>
+				<td>{{ user.email }}</td>
+				<td>{{ user.number }}</td>
+				<td class="center">
+					<a
+						[routerLink]="['/admin/pets', user.id]"
+						class="btn btn-primary"
+						>Detalles</a
+					>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
