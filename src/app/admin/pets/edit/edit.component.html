@@ -47,6 +47,18 @@
 				required
 			/>
 
+			<label for="owner">Seleccionar Dueño:</label>
+			<select
+				id="owner"
+				[(ngModel)]="pet.owner"
+				name="owner"
+				required
+			>
+				<option *ngFor="let owner of owners" [ngValue]="owner">
+					{{ owner.name }}
+				</option>
+			</select>
+
 			<button type="submit" class="btn btn-primary">Actualizar Mascota</button>
 		</form>
 	</div>
