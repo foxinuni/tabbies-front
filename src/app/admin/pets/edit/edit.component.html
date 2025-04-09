@@ -54,7 +54,11 @@
 				name="owner"
 				required
 			>
-				<option *ngFor="let owner of owners" [ngValue]="owner">
+				<option
+					*ngFor="let owner of owners"
+					[value]="owner.id"
+					[selected]="owner.id === selectedOwnerId"
+				>
 					{{ owner.name }}
 				</option>
 			</select>

@@ -1,59 +1,133 @@
 import { Injectable } from '@angular/core';
 import Pet from 'lib/entities/pet';
+import { config } from './config';
+import { PetGetDTO } from 'lib/dtos/pets';
+import { catchError, forkJoin, map, Observable, of } from 'rxjs';
+import { switchAll } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { UserGetDTO } from 'lib/dtos/users';
+import User from 'lib/entities/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
-  private pets: Pet[] = [
-    {
-      id: 1,
-      name: 'Luna',
-      breed: 'Negro y Blanco',
-      birthDate: new Date('2020-05-20'),
-      weight: 30,
-      picture: 'assets/images/luna.jpg',
-      isDisabled: false,
-      owner: { id: 1, name: 'alfredo', document: 12345, hash: 'alfredo', email: 'alfredo@gmail.com', number: '123456789' },
-      disease: { id: 1, name: 'Arthritis', description: 'Obesidad', procedure: 'Ejercicio' }
-    },
-    {
-      id: 2,
-      name: 'Emilio',
-      breed: 'Esfinge',
-      birthDate: new Date('2019-10-10'),
-      weight: 25,
-      picture: 'assets/images/max.jpg',
-      isDisabled: false,
-      owner: { id: 2, name: 'Emilio', document: 67890, hash: 'emilio', email: 'emilio@example.com', number: '987654321' }
-    }
-  ];
+  public getAllPets(client: HttpClient): Observable<Pet[]> {
+		return client.get<PetGetDTO[]>(`${config.backend_endpoint}/pets/`).pipe(
+			// Get all pets from the backend
+			map((petDTOs: PetGetDTO[]) => petDTOs.map(petDTO => ({
+				id: petDTO.id,
+				name: petDTO.name,
+				breed: petDTO.breed,
+				birthDate: new Date(petDTO.birthDate),
+				weight: petDTO.weight,
+				picture: petDTO.picture,
+				isDisabled: petDTO.isDisabled,
+				ownerId: petDTO.ownerId
+			}))),
 
-	
+			// For each pet, fetch the owner details
+			map(pets => pets.map(pet =>
+				client.get<UserGetDTO>(`${config.backend_endpoint}/users/${pet.ownerId}`).pipe(
+					// Cast the response to UserGetDTO
+					map((ownerDTO: UserGetDTO) => ({
+						id: ownerDTO.id,
+						name: ownerDTO.name,
+						document: ownerDTO.document,
+						email: ownerDTO.email,
+						number: ownerDTO.number,
+						hash: '',
+					} as User)),
 
-  getAllPets(): Pet[] {
-    return this.pets;
+					// Map the owner details to the pet object
+					map(owner => ({ ...pet, owner } as Pet)),
+
+					catchError(error => {
+						console.error(`Error fetching owner for pet ${pet.id}:`, error);
+						return of({ ...pet, owner: undefined });
+					})
+				)
+			)),
+
+			map(petObservables => petObservables.length ? forkJoin(petObservables) : of([])),
+			catchError(error => {
+				console.error('Error fetching pets:', error);
+				return of([]);
+			}),
+
+			switchAll()
+		);
   }
 
-  getPetById(id: number): Pet | undefined {
-    return this.pets.find(pet => pet.id === id);
-  }
+	getPetById(client: HttpClient, id: number): Observable<Pet | undefined> {
+		return client.get<PetGetDTO>(`${config.backend_endpoint}/pets/${id}`).pipe(
+			map((petDTO: PetGetDTO) => ({
+				id: petDTO.id,
+				name: petDTO.name,
+				breed: petDTO.breed,
+				birthDate: new Date(petDTO.birthDate),
+				weight: petDTO.weight,
+				picture: petDTO.picture,
+				isDisabled: petDTO.isDisabled,
+				ownerId: petDTO.ownerId
+			})),
 
-  addPet(pet: Pet): void {
-    this.pets.push(pet);
-  }
+			// Fetch the owner details and link it to the pet
+			map(pet =>
+				client.get<UserGetDTO>(`${config.backend_endpoint}/users/${pet.ownerId}`).pipe(
+					map((ownerDTO: UserGetDTO) => ({
+						id: ownerDTO.id,
+						name: ownerDTO.name,
+						document: ownerDTO.document,
+						email: ownerDTO.email,
+						number: ownerDTO.number,
+						hash: '',
+					} as User)),
+					map(owner => ({ ...pet, owner } as Pet)),
+					catchError(error => {
+						console.error(`Error fetching owner for pet ${pet.id}:`, error);
+						return of({ ...pet, owner: undefined });
+					})
+				)
+			),
 
-  updatePet(id: number, updatedPet: Pet): void {
-    const index = this.pets.findIndex(pet => pet.id === id);
-    if (index !== -1) this.pets[index] = updatedPet;
-  }
+			switchAll(),
 
-  deletePet(id: number): void {
-    this.pets = this.pets.filter(pet => pet.id !== id);
-  }
+			catchError(error => {
+				console.error('Error fetching pet:', error);
+				return of(undefined);
+			})
+		);
+	}
 
-  setActive(id: number, active: boolean): void {
-    const pet = this.getPetById(id);
-    if (pet) pet.isDisabled = !active;
-  }
+	addPet(client: HttpClient, pet: Pet): Observable<Pet> {
+		return client.post<Pet>(`${config.backend_endpoint}/pets/`, pet).pipe(
+			catchError(error => {
+				console.error('Error adding pet:', error);
+				return of(pet);
+			})
+		);
+	}
+
+	updatePet(client: HttpClient, id: number, updatedPet: Pet): Observable<Pet> {
+		return client.put<Pet>(`${config.backend_endpoint}/pets/${id}`, updatedPet).pipe(
+			catchError(error => {
+				console.error('Error updating pet:', error);
+				return of(updatedPet);
+			})
+		);
+	}
+
+	deletePet(client: HttpClient, id: number): Observable<void> {
+		return client.delete<void>(`${config.backend_endpoint}/pets/${id}`).pipe(
+			catchError(error => {
+				console.error('Error deleting pet:', error);
+				return of(undefined);
+			})
+		);
+	}
+
+	setActive(client: HttpClient, id: number, active: boolean): Observable<Pet | undefined> {
+		throw new Error('Method not implemented.');
+	}
 }

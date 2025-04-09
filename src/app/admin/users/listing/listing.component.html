@@ -12,18 +12,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let user of Users">
+			<tr *ngFor="let user of users">
 				<td>{{ user.name }}</td>
 				<td>{{ user.document }}</td>
 				<td>{{ user.email }}</td>
 				<td>{{ user.number }}</td>
 				<td class="center">
 					<a
-						[routerLink]="['/admin/pets', user.id]"
+						[routerLink]="['/admin/users', user.id]"
 						class="btn btn-primary"
 						>Detalles</a
 					>
-
 				</td>
 			</tr>
 		</tbody>

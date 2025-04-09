@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PetService } from 'lib/services/pet.service';
 import Pet from 'lib/entities/pet';
 import User from 'lib/entities/user';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from 'lib/services/user.service';
 
 @Component({
   selector: 'app-edit',
@@ -13,25 +15,30 @@ import User from 'lib/entities/user';
 export class EditComponent {
   pet: Pet | undefined;
 
+  owners: User[] = [];
+	selectedOwnerId: number | undefined;
 
-  owners: User[] = [
-    { id: 1, name: 'alfredo', document: 12345, hash: 'alfredo', email: 'alfredo@gmail.com', number: '123456789' },
-    { id: 2, name: 'Emilio', document: 67890, hash: 'emilio', email: 'emilio@example.com', number: '987654321' },
-  ];
+  constructor(private route: ActivatedRoute, private petService: PetService, private userService: UserService, private router: Router, private http: HttpClient) {}
 
+	ngOnInit() {
+		const id = Number(this.route.snapshot.paramMap.get('id'));
 
-  constructor(private route: ActivatedRoute, private petService: PetService, private router: Router) {}
+		this.petService.getPetById(this.http, id).subscribe((pet: Pet | undefined) => {
+			this.pet = pet;
+			this.selectedOwnerId = pet?.owner?.id;
+			console.log("selectedOwnerId", this.selectedOwnerId);
+		});
 
-  ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pet = this.petService.getPetById(id);
-  }
-
+		this.userService.getAllUsers(this.http).subscribe((users: User[]) => {
+			this.owners = users;
+		});
+	}
 
   updatePet() {
     if (this.pet) {
-      this.petService.updatePet(this.pet.id, this.pet);
-      this.router.navigate(['/admin/pets', this.pet.id]);
+      this.petService.updatePet(this.http, this.pet.id, this.pet).subscribe((updatedPet: Pet) => {
+				this.router.navigate(['/admin/pets', this.pet?.id]);
+			});
     }
   }
 }

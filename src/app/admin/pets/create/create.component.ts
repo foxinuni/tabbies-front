@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { PetService } from 'lib/services/pet.service';
 import Pet from 'lib/entities/pet';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create',
@@ -20,12 +21,13 @@ export class CreateComponent {
     owner: { id: 0, name: '', document: 0, hash: '', email: '', number: '' }
   };
 
-  constructor(private petService: PetService, private router: Router) {}
+  constructor(private petService: PetService, private router: Router, private http: HttpClient) {}
 
   createPet() {
     this.pet.id = new Date().getTime();
-    this.petService.addPet(this.pet);
-    
-    this.router.navigate(['/admin/pets']);
+    this.petService.addPet(this.http, this.pet).subscribe((newPet: Pet) => {
+			console.log('Pet created:', newPet);
+			this.router.navigate(['/admin/pets']);
+		});
   }
 }

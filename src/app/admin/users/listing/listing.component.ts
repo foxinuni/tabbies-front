@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import User from 'lib/entities/user';
 import { UserService } from 'lib/services/user.service';
@@ -8,11 +9,13 @@ import { UserService } from 'lib/services/user.service';
   styleUrls: ['./listing.component.css']
 })
 export class ListingComponent implements OnInit {
-	Users: User[] = [];
-	constructor(private userService: UserService){ }
+	users: User[] = [];
+
+	constructor(private userService: UserService, private http: HttpClient) {}
+
 	ngOnInit(): void {
-		this.Users = this.userService.getAllUsers();
+		this.userService.getAllUsers(this.http).subscribe((users: User[]) => {
+			this.users = users;
+		});
 	}
-
-
 }

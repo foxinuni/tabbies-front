@@ -10,6 +10,7 @@ import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ListingComponent } from './users/listing/listing.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ListingComponent } from './users/listing/listing.component';
     ListingComponent,
   ],
   imports: [
+		HttpClientModule,
     CommonModule,
     AdminRoutingModule,
     FormsModule

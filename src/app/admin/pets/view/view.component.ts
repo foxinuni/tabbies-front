@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 import { PetService } from 'lib/services/pet.service';
 import Pet from 'lib/entities/pet';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-view',
@@ -11,10 +12,12 @@ import Pet from 'lib/entities/pet';
 export class ViewComponent {
   pet: Pet | undefined;
 
-  constructor(private route: ActivatedRoute, private petService: PetService) {}
+  constructor(private route: ActivatedRoute, private petService: PetService, private http: HttpClient) {}
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pet = this.petService.getPetById(id);
+    this.petService.getPetById(this.http, id).subscribe((pet: Pet | undefined) => {
+			this.pet = pet;
+		});
   }
 }

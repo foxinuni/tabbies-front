@@ -15,9 +15,11 @@ section {
 	justify-content: start;
 	align-items: center;
 	flex-direction: column;
+	overflow: scroll;
 
 	background-image: url("/assets/images/bgTest2.png"),
 		url("/assets/images/bgTest.png");
+	background-attachment: scroll, scroll;
 	background-position: top left, bottom;
 	background-repeat: no-repeat;
 	background-size: auto, cover;
