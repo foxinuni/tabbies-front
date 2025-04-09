@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   import * as XLSX from 'xlsx';
 
   @Component({
-    selector: 'app-upload',
+    selector: 'medicine-upload',
     templateUrl: './upload.component.html',
     styleUrls: ['./upload.component.css']
   })
@@ -31,9 +31,9 @@ import { Component } from '@angular/core';
           this.medicines = jsonData.map((row: any, index) => ({
             id: index + 1,
             name: row['NOMBRE'],
-            buy_price: Number(String(row['PRECIO COMPRA'])), 
-            sell_price: Number(String(row['PRECIO VENTA'])), 
-            stock: Number(row['UNIDADES DISPONIBLES']), 
+            buy_price: Number(String(row['PRECIO COMPRA'])),
+            sell_price: Number(String(row['PRECIO VENTA'])),
+            stock: Number(row['UNIDADES DISPONIBLES']),
             sold: Number(row['UNIDADES VENDIDAS'])
 
           }));

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserService } from 'lib/services/user.service';
 
 @Component({
-  selector: 'app-edit',
+  selector: 'pet-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })

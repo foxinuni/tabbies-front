@@ -5,7 +5,7 @@ import Pet from 'lib/entities/pet';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-view',
+  selector: 'pet-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.css']
 })

@@ -5,7 +5,7 @@ import Pet from 'lib/entities/pet';
 
 
 @Component({
-  selector: 'app-listing',
+  selector: 'pet-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.css']
 })

@@ -4,7 +4,7 @@ import User from 'lib/entities/user';
 import { UserService } from 'lib/services/user.service';
 
 @Component({
-  selector: 'app-listing',
+  selector: 'user-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.css']
 })

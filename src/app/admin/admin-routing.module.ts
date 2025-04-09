@@ -6,7 +6,7 @@ import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { AdminComponent } from './admin.component';
 import { ListingComponent as UserListingComponent } from './users/listing/listing.component';
-import { ViewComponent as UserViewComponent } from './users/userView/view.component';
+import { ViewComponent as UserViewComponent } from './users/view/view.component';
 import { UploadComponent } from './medicine/upload/upload.component';
 
 const routes: Routes = [

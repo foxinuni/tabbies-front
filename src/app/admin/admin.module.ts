@@ -11,7 +11,7 @@ import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ListingComponent } from './users/listing/listing.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ViewComponent } from './users/userView/view.component';
+import { ViewComponent } from './users/view/view.component';
 import { UploadComponent } from './medicine/upload/upload.component';
 
 @NgModule({
