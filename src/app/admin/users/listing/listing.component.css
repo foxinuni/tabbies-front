@@ -79,3 +79,17 @@ table td {
 	text-align: center;
 	padding: 20px;
 }
+
+.wand{
+	margin-right: 10px;
+	font-size: 1.3em;
+}
+
+.btn-primary{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+

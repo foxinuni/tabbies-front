@@ -1,6 +1,6 @@
 <section>
 	<h1>Lista de Mascotas</h1>
-	<a routerLink="/admin/pets/add" class="btn btn-primary">Crear Mascota</a>
+	<a routerLink="/admin/pets/add" class="btn btn-primary"><ion-icon name="color-wand" class="wand"/>Crear Mascota</a>
 	<table>
 		<thead>
 			<tr>
@@ -22,14 +22,14 @@
 						[routerLink]="['/admin/pets', pet.id]"
 						class="btn btn-primary"
 						*ngIf="!pet.isDisabled"
-						>Detalles</a
+						><ion-icon name="list-circle-outline" class="detalles"></ion-icon></a
 					>
 
 					<button
 						class="btn btn-secondary"
 						(click)="toggleStatus(pet.id, false)"
 						*ngIf="!pet.isDisabled"
-					>
+					><ion-icon name="trash-bin"></ion-icon>
 						Desactivar
 					</button>
 
