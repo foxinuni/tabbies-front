@@ -11,6 +11,7 @@ import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ListingComponent } from './users/listing/listing.component';
 import { ViewComponent } from './users/userView/view.component';
+import { UploadComponent } from './medicine/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ViewComponent } from './users/userView/view.component';
     SidebarComponent,
     ListingComponent,
     ViewComponent,
+    UploadComponent,
   ],
   imports: [
     CommonModule,

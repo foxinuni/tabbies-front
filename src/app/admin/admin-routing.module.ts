@@ -7,6 +7,7 @@ import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { AdminComponent } from './admin.component';
 import { ListingComponent as UserListingComponent } from './users/listing/listing.component';
 import { ViewComponent as UserViewComponent } from './users/userView/view.component';
+import { UploadComponent } from './medicine/upload/upload.component';
 
 const routes: Routes = [
 	{
@@ -19,7 +20,8 @@ const routes: Routes = [
 			{ path: 'pets/:id', component: PetViewComponent },
 			{ path: 'pets/:id/edit', component: PetEditComponent },
 			{ path: 'users', component: UserListingComponent },
-			{path: 'users/:id', component: UserViewComponent},
+			{ path: 'users/:id', component: UserViewComponent},
+			{ path: 'medicine', component: UploadComponent },
 		],
 	},
 ];
