@@ -10,6 +10,7 @@ import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ListingComponent } from './users/listing/listing.component';
+import { ViewComponent } from './users/userView/view.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ListingComponent } from './users/listing/listing.component';
     PetViewComponent,
     SidebarComponent,
     ListingComponent,
+    ViewComponent,
   ],
   imports: [
     CommonModule,

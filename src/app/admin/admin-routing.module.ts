@@ -6,6 +6,7 @@ import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { AdminComponent } from './admin.component';
 import { ListingComponent as UserListingComponent } from './users/listing/listing.component';
+import { ViewComponent as UserViewComponent } from './users/userView/view.component';
 
 const routes: Routes = [
 	{
@@ -18,6 +19,7 @@ const routes: Routes = [
 			{ path: 'pets/:id', component: PetViewComponent },
 			{ path: 'pets/:id/edit', component: PetEditComponent },
 			{ path: 'users', component: UserListingComponent },
+			{path: 'users/:id', component: UserViewComponent},
 		],
 	},
 ];

@@ -1,6 +1,6 @@
 <section>
-	<h1>Lista de Mascotas</h1>
-	<a routerLink="/admin/pets/add" class="btn btn-primary">Crear Mascota</a>
+	<h1>Lista de Usuarios</h1>
+	<a routerLink="/admin/pets/add" class="btn btn-primary"><ion-icon name="color-wand" class="wand"/>Crear Usuario</a>
 	<table>
 		<thead>
 			<tr>
@@ -19,9 +19,9 @@
 				<td>{{ user.number }}</td>
 				<td class="center">
 					<a
-						[routerLink]="['/admin/pets', user.id]"
+						[routerLink]="['/admin/users', user.id]"
 						class="btn btn-primary"
-						>Detalles</a
+						><ion-icon name="list-circle-outline" size="large"></ion-icon></a
 					>
 
 				</td>
