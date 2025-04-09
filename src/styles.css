@@ -29,6 +29,12 @@ body {
 /* General components */
 .btn-primary,
 .btn-secondary {
+		/* Display */
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
     /* Spacing */
     padding: 0.5em 1em;
     margin: 0.5em 0.5em;
@@ -42,7 +48,6 @@ body {
 
     /* Border and Background Reset for Buttons */
     border: none;
-
 
     /* Font Inheritance */
     font-family: inherit;

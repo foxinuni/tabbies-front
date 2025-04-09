@@ -18,11 +18,9 @@
 				<td>{{ user.email }}</td>
 				<td>{{ user.number }}</td>
 				<td class="center">
-					<a
-						[routerLink]="['/admin/users', user.id]"
-						class="btn btn-primary"
-						><ion-icon name="list-circle-outline" size="large"></ion-icon></a
-					>
+					<a [routerLink]="['/admin/users', user.id]" class="btn btn-primary">
+						<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
+					</a>
 				</td>
 			</tr>
 		</tbody>
