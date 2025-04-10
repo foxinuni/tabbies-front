@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListingComponent as PetListingComponent } from './pets/listing/listing.component';
-import { CreateComponent as PetCreateComponent } from './pets/create/create.component';
+import { CreateComponent, CreateComponent as PetCreateComponent } from './pets/create/create.component';
 import { ViewComponent as PetViewComponent } from './pets/view/view.component';
 import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { AdminComponent } from './admin.component';
@@ -23,7 +23,9 @@ const routes: Routes = [
 			{ path: 'users', component: UserListingComponent },
 			{ path: 'users/:id', component: UserViewComponent},
 			{ path: 'users/:id/edit', component: UserEditComponent },
+			{ path: 'users/add', component: CreateComponent },
 			{ path: 'medicine', component: UploadComponent },
+
 		],
 	},
 ];

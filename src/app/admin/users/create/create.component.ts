@@ -27,7 +27,7 @@ export class CreateComponent {
 
   createUser(): void {
     this.userService.createUser(this.http, this.user).subscribe({
-      next: (createdUser) => {
+      next: () => {
         this.router.navigate(['/admin/users']);
       },
 
