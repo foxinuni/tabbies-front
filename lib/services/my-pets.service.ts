@@ -14,10 +14,10 @@ export class MyPetsService {
 	) {}
 
 	public getAllPets(): Observable<PetView[]> {
-		return this.http.get<PetView[]>(`${config.backend_endpoint}/my-pets/`);
+		return this.http.get<PetView[]>(`${config.backend_endpoint}/my-pets/`, { withCredentials: true });
 	}
 
 	public getPetById(id: number): Observable<PetView> {
-		return this.http.get<PetView>(`${config.backend_endpoint}/my-pets/${id}`);
+		return this.http.get<PetView>(`${config.backend_endpoint}/my-pets/${id}`, { withCredentials: true });
 	}
 }

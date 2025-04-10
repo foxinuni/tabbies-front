@@ -13,7 +13,7 @@ export class LoginService {
 	) {}
 
 	public login(email: string, password: string): Observable<any> {
-		return this.http.post<any>(`${config.backend_endpoint}/auth/login`, { email, password });
+		return this.http.post<any>(`${config.backend_endpoint}/auth/login`, { email, password }, { withCredentials: true });
 	}
 
 	public logout(): Observable<void> {
