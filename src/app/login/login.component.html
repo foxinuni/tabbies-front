@@ -1,16 +1,15 @@
-
 <home-header />
 <section class="login">
-    <form th:object="${auth}" action="/auth/login" method="post" class="form">
-        <h1>Iniciar Sesión</h1>
-        <p th:if="${invalid}" class="error">Usuario o contraseña incorrectos</p>
-        <div class="input-group">
-            <input type="email" th:field="*{email}" placeholder="Email" required>
-        </div>
-        <div class="input-group">
-            <input type="password" th:field="*{password}" placeholder="Password" required>
-        </div>
-        <a>Olvide mi contraseña</a>
-        <button type="submit" class="submit">Iniciar Sesión</button>
-    </form>
+	<form (ngSubmit)="login()" class="form">
+		<h1>Iniciar Sesión</h1>
+		<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+		<div class="input-group">
+			<input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+		</div>
+		<div class="input-group">
+			<input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+		</div>
+		<a>Olvide mi contraseña</a>
+		<button type="submit" class="submit">Iniciar Sesión</button>
+	</form>
 </section>
