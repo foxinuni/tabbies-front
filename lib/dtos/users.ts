@@ -1,4 +1,4 @@
-export interface UserGetDTO {
+export interface UserView {
 	id: number;
 	document: number;
 	name: string;
@@ -6,7 +6,7 @@ export interface UserGetDTO {
 	number: string;
 }
 
-export interface UserCreateDTO {
+export interface UserUpsert {
 	document: number;
 	name: string;
 	email: string;

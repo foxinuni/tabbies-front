@@ -15,10 +15,12 @@ export class ViewComponent {
 	constructor(private route: ActivatedRoute, private userService: UserService, private http: HttpClient) { }
 
 	ngOnInit() {
+		/*
 		const id = Number(this.route.snapshot.paramMap.get('id'));
 		this.userService.getUserById(this.http, id).subscribe((user) => {
 			this.user = user;
 		});
+		*/
 	}
 
 }

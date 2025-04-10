@@ -14,9 +14,11 @@ export class ListingComponent implements OnInit {
 	constructor(private userService: UserService, private http: HttpClient) {}
 
 	ngOnInit(): void {
+		/*
 		this.userService.getAllUsers(this.http).subscribe((users: User[]) => {
 			console.log('Usuarios:', users);
 			this.users = users;
 		});
+		*/
 	}
 }

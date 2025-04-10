@@ -26,6 +26,7 @@ export class CreateComponent {
   ) {}
 
   createUser(): void {
+	/*
     this.userService.createUser(this.http, this.user).subscribe({
       next: () => {
         this.router.navigate(['/admin/users']);
@@ -35,5 +36,6 @@ export class CreateComponent {
         console.error('Error creando al usaraio:', err);
       }
     });
+	*/
   }
 }

@@ -3,65 +3,29 @@
 		<h1>Editar Mascota</h1>
 		<form (ngSubmit)="updatePet()">
 			<label for="name">Nombre:</label>
-			<input
-				type="text"
-				id="name"
-				[(ngModel)]="pet.name"
-				name="name"
-				required
-			/>
+			<input type="text" id="name" [(ngModel)]="pet.name" name="name" required />
 
 			<label for="breed">Raza:</label>
-			<input
-				type="text"
-				id="breed"
-				[(ngModel)]="pet.breed"
-				name="breed"
-				required
-			/>
+			<input type="text" id="breed" [(ngModel)]="pet.breed" name="breed" required />
 
 			<label for="weight">Peso (kg):</label>
-			<input
-				type="number"
-				id="weight"
-				[(ngModel)]="pet.weight"
-				name="weight"
-				required
-			/>
+			<input type="number" id="weight" [(ngModel)]="pet.weight" name="weight" required />
 
 			<label for="birthDate">Fecha de Nacimiento:</label>
-			<input
-				type="date"
-				id="birthDate"
-				[(ngModel)]="pet.birthDate"
-				name="birthDate"
-				required
-			/>
+			<input type="date" id="birthDate" [(ngModel)]="pet.birthDate" name="birthDate" required />
 
 			<label for="picture">Foto (URL):</label>
-			<input
-				type="url"
-				id="picture"
-				[(ngModel)]="pet.picture"
-				name="picture"
-				required
-			/>
+			<input type="url" id="picture" [(ngModel)]="pet.picture" name="picture" required />
 
 			<label for="owner">Seleccionar Dueño:</label>
-			<select
-				id="owner"
-				[(ngModel)]="pet.owner"
-				name="owner"
-				required
-			>
-				<option
-					*ngFor="let owner of owners"
-					[value]="owner.id"
-					[selected]="owner.id === selectedOwnerId"
-				>
-					{{ owner.name }}
+			<select id="owner" [(ngModel)]="pet.owner" name="owner" required>
+				<option *ngFor="let user of users" [ngValue]="user">
+					{{ user.name }}
 				</option>
 			</select>
+
+			<input type="hidden" [(ngModel)]="pet.id" name="id" />
+			<input type="hidden" [(ngModel)]="pet.disabled" name="disabled" />
 
 			<button type="submit" class="btn btn-primary">Actualizar Mascota</button>
 		</form>

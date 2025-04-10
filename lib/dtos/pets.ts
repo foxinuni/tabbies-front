@@ -1,4 +1,4 @@
-export interface PetGetDTO {
+export interface PetView {
 	id: number;
 	name: string;
 	breed: string;
@@ -6,15 +6,15 @@ export interface PetGetDTO {
 	picture: string;
 	birthDate: Date;
 	ownerId: number;
-	isDisabled: boolean;
+	disabled: boolean;
 }
 
-export interface PetCreateDTO {
+export interface PetUpsert {
 	name: string;
 	breed: string;
 	weight: number;
 	picture: string;
 	birthDate: Date;
 	ownerId: number;
-	isDisabled?: boolean;
+	disabled: boolean;
 }

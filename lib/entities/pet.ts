@@ -8,7 +8,7 @@ export default interface Pet {
     weight: number;
     picture: string;
     birthDate: Date;
-    isDisabled: boolean;
+    disabled: boolean;
     owner?: User;
     disease?: Disease;
 }

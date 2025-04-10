@@ -27,6 +27,7 @@ export class EditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+	/*
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
       this.userService.getUserById(this.http, id).subscribe((data) => {
@@ -35,11 +36,14 @@ export class EditComponent implements OnInit {
         }
       });
     }
+	  */
   }
 
   updateUser(): void {
+	/*
     this.userService.updateUser(this.http, this.user.id, this.user).subscribe(() => {
       this.router.navigate(['/admin/users']);
     });
+	*/
   }
 }
