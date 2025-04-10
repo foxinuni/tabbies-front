@@ -30,8 +30,18 @@ export class ListingComponent implements OnInit {
 	}
 
 	public toggleStatus(id: number, active: boolean) {
-		//this.petService.setActive(id, active);
-		// this.pets = this.petService.getAllPets();
+		this.petService.setActive(id, active).subscribe(
+			() => {
+				this.petService.getAllPets().pipe(
+					switchMap(models => {
+						const pets = models.map(model => this.modelMapper.petViewToEntity(model));
+						return forkJoin(pets);
+					})
+				).subscribe(pets => {
+					this.pets = pets;
+				})
+			}
+		);
 	}
 }
 

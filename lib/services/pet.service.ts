@@ -33,7 +33,7 @@ export class PetService {
 		return this.http.delete<void>(`${config.backend_endpoint}/pets/${id}`);
 	}
 
-	public setActive(id: number, active: boolean): Observable<void> {
-		throw new Error('Method not implemented.');
+	public setActive(id: number, active: boolean): Observable<PetView> {
+		return this.http.post<PetView>(`${config.backend_endpoint}/pets/${id}/status?active=${active}`, {});
 	}
 }
