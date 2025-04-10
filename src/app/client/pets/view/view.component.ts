@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
-import { PetService } from 'lib/services/pet.service';
 import { ModelMapper } from 'lib/services/model-mapper.service';
+import { MyPetsService } from 'lib/services/my-pets.service';
 import Pet from 'lib/entities/pet';
 
 @Component({
@@ -15,7 +15,7 @@ export class ViewComponent {
 
 	constructor(
 		private readonly route: ActivatedRoute,
-		private readonly petService: PetService,
+		private readonly petService: MyPetsService,
 		private readonly modelMapper: ModelMapper
 	) { }
 

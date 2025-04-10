@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, switchMap } from 'rxjs';
-import { PetService } from 'lib/services/pet.service';
+import { MyPetsService } from 'lib/services/my-pets.service';
 import { ModelMapper } from 'lib/services/model-mapper.service';
 import Pet from 'lib/entities/pet';
 
@@ -13,7 +13,7 @@ export class ListingComponent implements OnInit {
 	public pets: Pet[] = [];
 
 	constructor(
-		private readonly petService: PetService,
+		private readonly petService: MyPetsService,
 		private readonly modelMapper: ModelMapper,
 	) { }
 
@@ -26,20 +26,5 @@ export class ListingComponent implements OnInit {
 		).subscribe(pets => {
 			this.pets = pets;
 		})
-	}
-
-	public toggleStatus(id: number, active: boolean) {
-		this.petService.setActive(id, active).subscribe(
-			() => {
-				this.petService.getAllPets().pipe(
-					switchMap(models => {
-						const pets = models.map(model => this.modelMapper.petViewToEntity(model));
-						return forkJoin(pets);
-					})
-				).subscribe(pets => {
-					this.pets = pets;
-				})
-			}
-		);
 	}
 }
