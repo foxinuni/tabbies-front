@@ -15,6 +15,7 @@ export class ListingComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.userService.getAllUsers(this.http).subscribe((users: User[]) => {
+			console.log('Usuarios:', users);
 			this.users = users;
 		});
 	}

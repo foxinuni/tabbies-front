@@ -13,6 +13,7 @@ import { ListingComponent } from './users/listing/listing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewComponent } from './users/view/view.component';
 import { UploadComponent } from './medicine/upload/upload.component';
+import { EditComponent } from './users/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UploadComponent } from './medicine/upload/upload.component';
     ListingComponent,
     ViewComponent,
     UploadComponent,
+    EditComponent,
   ],
   imports: [
 		HttpClientModule,
