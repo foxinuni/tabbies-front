@@ -44,8 +44,3 @@ export class ListingComponent implements OnInit {
 		);
 	}
 }
-
-function collectAll(): import("rxjs").OperatorFunction<import("rxjs").Observable<Pet>, unknown> {
-	throw new Error('Function not implemented.');
-}
-
