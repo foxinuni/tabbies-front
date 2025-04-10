@@ -1,0 +1,27 @@
+<section>
+	<h1>Lista de Mascotas</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre Gatuno</th>
+				<th>Raza</th>
+				<th>Peso (kg)</th>
+				<th>Nacimiento</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let pet of pets">
+				<td>{{ pet.name }}</td>
+				<td>{{ pet.breed }}</td>
+				<td>{{ pet.weight }}</td>
+				<td>{{ pet.birthDate | date : "dd-MM-yyyy" }}</td>
+				<td class="center">
+					<a [routerLink]="['/client/pets', pet.id]" class="btn btn-primary">
+						<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
