@@ -14,6 +14,7 @@ import { CardComponent as TestimonyCardComponent } from './home/testimonies/card
 import { ContactComponent } from './home/contact/contact.component';
 import { AdminModule } from './admin/admin.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     TestimonyCardComponent,
     ContactComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
