@@ -3,39 +3,35 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import User from 'lib/entities/user';
 import { UserService } from 'lib/services/user.service';
+import { ModelMapper } from 'lib/services/model-mapper.service';
+import { switchMap } from 'rxjs';
 
 @Component({
-  selector: 'user-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+	selector: 'user-create',
+	templateUrl: './create.component.html',
+	styleUrls: ['./create.component.css']
 })
 export class CreateComponent {
-  user: User = {
-    id: 0,
-    name: '',
-    document: 0,
-    email: '',
-    number: '',
-    hash: ''
-  };
+	public user: User = {
+		id: 0,
+		name: '',
+		document: 0,
+		email: '',
+		number: '',
+		hash: ''
+	};
 
-  constructor(
-    private userService: UserService,
-    private http: HttpClient,
-    private router: Router
-  ) {}
+	constructor(
+		private router: Router,
+		private userService: UserService,
+		private modelMapper: ModelMapper,
+	) { }
 
-  createUser(): void {
-	/*
-    this.userService.createUser(this.http, this.user).subscribe({
-      next: () => {
-        this.router.navigate(['/admin/users']);
-      },
-
-      error: (err) => {
-        console.error('Error creando al usaraio:', err);
-      }
-    });
-	*/
-  }
+	public createUser(): void {
+		this.modelMapper.userEntityToUpsert(this.user).pipe(
+			switchMap(dto => this.userService.createUser(dto))
+		).subscribe(() => {
+			this.router.navigate(['/admin/users']);
+		})
+	}
 }

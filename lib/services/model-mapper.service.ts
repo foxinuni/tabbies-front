@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import Pet from 'lib/entities/pet';
 import { PetUpsert, PetView } from 'lib/dtos/pets';
 import { map, Observable, of, switchAll } from 'rxjs';
-import { UserView } from 'lib/dtos/users';
+import { UserUpsert, UserView } from 'lib/dtos/users';
 import User from 'lib/entities/user';
 
 @Injectable({
@@ -22,11 +22,15 @@ export class ModelMapper {
         )
     }
 
-	public petEntityToUpsert(dto: Pet): Observable<PetUpsert> {
-		return of({ ...dto, ownerId: dto.owner?.id ?? 0 });
+	public petEntityToUpsert(model: Pet): Observable<PetUpsert> {
+		return of({ ...model, ownerId: model.owner?.id ?? 0 });
 	}
 
 	public userViewToEntity(dto: UserView): Observable<User> {
 		return of({ ...dto, hash: '' });
+	}
+
+	public userEntityToUpsert(model: User): Observable<UserUpsert> {
+		return of({ ...model, password: model.hash });
 	}
 }

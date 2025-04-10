@@ -53,8 +53,9 @@ section {
 	width: 12rem;
 	height: 12rem;
 	border-radius: 50%;
-	object-fit: center;
+	object-fit: cover;
 	object-position: center;
+	background-color: whitesmoke;
 
 	border: 1px solid white;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);

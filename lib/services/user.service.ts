@@ -22,14 +22,14 @@ export class UserService {
 	}
 
 	public createUser(dto: UserUpsert): Observable<UserView> {
-		return this.http.post<User>(`${config.backend_endpoint}/users`, dto);
+		return this.http.post<User>(`${config.backend_endpoint}/users/`, dto);
 	}
 
 	public updateUser(id: number, dto: UserUpsert): Observable<UserView> {
-		return this.http.put<User>(`${config.backend_endpoint}/users/${id}/`, dto);
+		return this.http.put<User>(`${config.backend_endpoint}/users/${id}`, dto);
 	}
 
 	public deleteUser(id: number): Observable<void> {
-		return this.http.delete<void>(`${config.backend_endpoint}/users/${id}/`);
+		return this.http.delete<void>(`${config.backend_endpoint}/users/${id}`);
 	}
 }

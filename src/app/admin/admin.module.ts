@@ -32,7 +32,7 @@ import { CreateComponent } from './users/create/create.component';
     CreateComponent,
   ],
   imports: [
-		HttpClientModule,
+	HttpClientModule,
     CommonModule,
     AdminRoutingModule,
     FormsModule

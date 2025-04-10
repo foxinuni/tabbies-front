@@ -10,36 +10,38 @@ span {
 }
 
 section {
-	background-image: url("/assets/images/bgTest2.png"),
-		url("/assets/images/bgTest.png");
-	background-position: top left, bottom;
-	background-repeat: no-repeat, no-repeat;
-	background-size: auto, cover;
-	background-color: white;
-
-	width: 100%;
 	display: flex;
-	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	flex-direction: column;
+	overflow: scroll;
 
-	padding: 4em;
+	background-image: url("/assets/images/bgTest2.png"),
+		url("/assets/images/bgTest.png");
+	background-attachment: scroll, scroll;
+	background-position: top left, bottom;
+	background-repeat: no-repeat;
+	background-size: auto, cover;
+
+	padding: 1.5em;
+	width: 100%;
 }
 
 .form {
-  display: flex;
+	display: flex;
 	flex-direction: column;
-  background-color: #fdfdfd;
-  justify-content: center;
-  align-items: center;
-  width: 700px;
-  border-radius: 8px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+	background-color: #fdfdfd;
+	justify-content: center;
+	align-items: center;
+	width: 700px;
+	border-radius: 8px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+	margin: 1.5em;
 }
 
 form {
 	width: 100%;
-	padding: 30px;
+	padding: 8px 30px;
 	margin: 20px 0;
 	display: flex;
 	flex-direction: column;
@@ -66,6 +68,7 @@ form select {
 	padding: 15px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
+	background-color: inherit;
 }
 
 form button {
@@ -84,6 +87,53 @@ form button:hover {
 	background-color: #8895ea;
 }
 
+.pet-listing {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px 0;
+}
+
+.pet-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px 0;
+}
+
+.pet-info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 600px;
+	width: 75%;
+	margin: 20px 0;
+	border-radius: 8px;
+	background-color: #fbacac;
+}
+
+.pet-info .aside {
+	width: 100%;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.pet-info img {
+	object-fit: cover;
+	object-position: center;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	height: 600px;
+	width: 100%;
+}
+
+.pet-info form {
+	height: 600px;
+	width: 100%;
+	padding: 20px 40px;
+}
 
 .center {
 	display: flex;
@@ -92,7 +142,14 @@ form button:hover {
 	flex-direction: row;
 }
 
-.users-form {
+.delete-form {
+	display: inline-block;
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.pet-form {
 	padding: 1%;
 	width: 80%;
 	height: 80%;
@@ -107,14 +164,14 @@ form span {
 	justify-content: center;
 }
 
-form span > div {
+form span>div {
 	padding: 0 5px;
 }
 
-form span > div.left {
+form span>div.left {
 	padding: 0 5px 0 0;
 }
 
-form span > div.right {
+form span>div.right {
 	padding: 0 0 0 5px;
 }

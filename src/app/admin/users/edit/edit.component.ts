@@ -1,49 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { switchMap } from 'rxjs';
 import { UserService } from 'lib/services/user.service';
+import { ModelMapper } from 'lib/services/model-mapper.service';
 import User from 'lib/entities/user';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+	selector: 'user-edit',
+	templateUrl: './edit.component.html',
+	styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    document: 0,
-    number: '',
-    hash: ''
-  };
+	public user?: User
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private userService: UserService,
-    private http: HttpClient
-  ) {}
+	constructor(
+		private router: Router,
+		private route: ActivatedRoute,
+		private userService: UserService,
+		private modelMapper: ModelMapper,
 
-  ngOnInit(): void {
-	/*
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    if (id) {
-      this.userService.getUserById(this.http, id).subscribe((data) => {
-        if (data) {
-          this.user = data;
-        }
-      });
-    }
-	  */
-  }
+	) {}
 
-  updateUser(): void {
-	/*
-    this.userService.updateUser(this.http, this.user.id, this.user).subscribe(() => {
-      this.router.navigate(['/admin/users']);
-    });
-	*/
-  }
+	public ngOnInit(): void {
+		const id = Number(this.route.snapshot.paramMap.get('id'));
+
+		this.userService.getUserById(id).pipe(
+			switchMap(model => this.modelMapper.userViewToEntity(model))
+		).subscribe(user => {
+			this.user = user
+		})
+	}
+
+	public updateUser(): void {
+		if (this.user) {
+			this.modelMapper.userEntityToUpsert(this.user).pipe(
+				switchMap(dto => this.userService.updateUser(this.user?.id ?? 0, dto))
+			).subscribe(() => {
+				this.router.navigate(['/admin/users', this.user?.id]);
+			});
+		}
+	}
 }
