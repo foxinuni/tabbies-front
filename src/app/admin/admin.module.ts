@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewComponent } from './users/view/view.component';
 import { UploadComponent } from './medicine/upload/upload.component';
 import { EditComponent } from './users/edit/edit.component';
+import { CreateComponent } from './users/create/create.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EditComponent } from './users/edit/edit.component';
     ViewComponent,
     UploadComponent,
     EditComponent,
+    CreateComponent,
   ],
   imports: [
 		HttpClientModule,

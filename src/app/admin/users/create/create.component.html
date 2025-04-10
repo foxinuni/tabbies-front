@@ -1,0 +1,24 @@
+<section>
+    <h1>Crear Usuario</h1>
+  
+    <form (ngSubmit)="createUser()">
+      <label>Nombre:
+        <input type="text" [(ngModel)]="user.name" name="name" required />
+      </label>
+  
+      <label>Documento:
+        <input type="number" [(ngModel)]="user.document" name="document" required />
+      </label>
+  
+      <label>Email:
+        <input type="email" [(ngModel)]="user.email" name="email" required />
+      </label>
+  
+      <label>Teléfono:
+        <input type="text" [(ngModel)]="user.number" name="number" required />
+      </label>
+  
+      <button type="submit" class="btn btn-success">Crear</button>
+    </form>
+  </section>
+  
