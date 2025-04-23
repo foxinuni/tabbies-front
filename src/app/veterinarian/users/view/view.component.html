@@ -1,0 +1,27 @@
+<section *ngIf="user" class="pet-details">
+	<div class="card">
+		<div class="top-section">
+			<h1>{{ user.name }}</h1>
+			<div class="img-con">
+				<img src = "https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Pet Picture" />
+			</div>
+		</div>
+		<div class="bottom-section">
+			<div class="user-info">
+				<p>
+					<strong>Documento:  </strong> <span>{{ user.document }}</span>
+				</p>
+				<p>
+					<strong>Email:  </strong> <span>{{ user.email }}</span>
+				</p>
+				<p>
+					<strong>Numero: </strong> <span>{{ user.number }}</span>
+				</p>
+			</div>
+			<span>
+				<a class="btn-primary" routerLink="/veterinarian/users">Volver</a>
+				<a class="btn-secondary" [routerLink]="['/veterinarian/users', user.id, 'edit']">Editar</a>
+			</span>
+		</div>
+	</div>
+</section>

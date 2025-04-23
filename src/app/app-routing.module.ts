@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
   { path: 'login', component: LoginComponent},
+  { path: 'veterinarian', loadChildren: () => import('./veterinarian/veterinarian.module').then(m => m.VeterinarianModule) },
   { path: '**', component: NotFoundComponent},
 ];
 

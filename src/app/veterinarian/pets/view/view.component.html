@@ -1,0 +1,30 @@
+<section *ngIf="pet" class="pet-details">
+	<div class="card">
+		<div class="top-section">
+			<h1>{{ pet.name }}</h1>
+			<div class="img-con">
+				<img [src]="pet.picture" alt="Pet Picture" />
+			</div>
+		</div>
+		<div class="bottom-section">
+			<div class="pet-info">
+				<p>
+					<strong>Dueño: </strong> <span>{{ pet.owner?.name }}</span>
+				</p>
+				<p>
+					<strong>Raza: </strong> <span>{{ pet.breed }}</span>
+				</p>
+				<p>
+					<strong>Peso (kg): </strong> <span>{{ pet.weight }}</span>
+				</p>
+				<p>
+					<strong>Nacimiento: </strong> <span>{{ pet.birthDate | date }}</span>
+				</p>
+			</div>
+			<span>
+				<a class="btn-primary" routerLink="/veterinarian/pets">Volver</a>
+				<a class="btn-secondary" [routerLink]="['/veterinarian/pets', pet.id, 'edit']">Editar</a>
+			</span>
+		</div>
+	</div>
+</section>

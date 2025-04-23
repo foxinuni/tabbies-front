@@ -1,0 +1,24 @@
+<section>
+    <h1>Medicamentos</h1>
+    <table *ngIf="medicines.length">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio Venta</th>
+          <th>Precio Compra</th>
+          <th>Disponibles</th>
+          <th>Vendidos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let med of medicines">
+          <td>{{ med.name }}</td>
+          <td>{{ med.sell_price }}</td>
+          <td>{{ med.buy_price }}</td>
+          <td>{{ med.stock }}</td>
+          <td>{{ med.sold }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
