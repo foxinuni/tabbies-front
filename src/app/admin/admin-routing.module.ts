@@ -10,6 +10,7 @@ import { ViewComponent as UserViewComponent } from './users/view/view.component'
 import { UploadComponent } from './medicine/upload/upload.component';
 import { EditComponent as UserEditComponent } from './users/edit/edit.component';
 import { CreateComponent as UserCreateComponent } from './users/create/create.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
 	{
@@ -29,6 +30,8 @@ const routes: Routes = [
 			{ path: 'users/:id/edit', component: UserEditComponent },
 
 			{ path: 'medicine', component: UploadComponent },
+
+			{ path: 'dashboard',component: DashboardComponent}
 
 		],
 	},

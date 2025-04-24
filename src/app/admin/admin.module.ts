@@ -15,6 +15,7 @@ import { ViewComponent } from './users/view/view.component';
 import { UploadComponent } from './medicine/upload/upload.component';
 import { EditComponent } from './users/edit/edit.component';
 import { CreateComponent } from './users/create/create.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CreateComponent } from './users/create/create.component';
     UploadComponent,
     EditComponent,
     CreateComponent,
+    DashboardComponent,
   ],
   imports: [
 	HttpClientModule,
