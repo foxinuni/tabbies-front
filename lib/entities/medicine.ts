@@ -1,8 +1,8 @@
 export default interface Medicine {
     id: number;
     name: string;
-    buy_price: number;
-    sell_price: number;
+    buyPrice: number;
+    sellPrice: number;
     stock: number;
     sold: number;
 }
