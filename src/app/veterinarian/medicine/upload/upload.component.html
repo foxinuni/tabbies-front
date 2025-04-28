@@ -14,8 +14,8 @@
     <tbody>
       <tr *ngFor="let med of medicines">
         <td>{{ med.name }}</td>
-        <td>{{ med.sellPrice | currency:'COP':'symbol':'1.0-0' }}</td>
-        <td>{{ med.buyPrice | currency:'COP':'symbol':'1.0-0' }}</td>
+        <td>{{ med.sellPrice}}$</td>
+        <td>{{ med.buyPrice}}$</td>
         <td>{{ med.stock }}</td>
         <td>{{ med.sold }}</td>
       </tr>

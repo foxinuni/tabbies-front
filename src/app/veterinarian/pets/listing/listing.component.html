@@ -22,6 +22,10 @@
 						<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
 					</a>
 
+					<button routerLink="/veterinarian/treatment" class="btn btn-secondary">
+						<ion-icon name="medkit-outline"></ion-icon>
+					</button>
+
 					<button class="btn btn-secondary" (click)="toggleStatus(pet.id, false)" *ngIf="!pet.disabled">
 						<ion-icon name="trash-bin"></ion-icon>
 						&nbsp;Desactivar
@@ -30,6 +34,7 @@
 					<button class="btn btn-secondary" (click)="toggleStatus(pet.id, true)" *ngIf="pet.disabled">
 						&nbsp;Activar
 					</button>
+					  
 				</td>
 			</tr>
 		</tbody>
