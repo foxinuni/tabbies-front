@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), data: { context: 'admin' } },
-  { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule), data: { context: 'client' } },
-  { path: 'veterinarian', loadChildren: () => import('./veterinarian/veterinarian.module').then(m => m.VeterinarianModule), data: { context: 'veterinarian' } },
+  { path: 'admin', loadChildren: () => import('./panel/admin/admin.module').then(m => m.AdminModule), data: { context: 'admin' } },
+  { path: 'client', loadChildren: () => import('./panel/client/client.module').then(m => m.ClientModule), data: { context: 'client' } },
+  { path: 'veterinarian', loadChildren: () => import('./panel/veterinarian/veterinarian.module').then(m => m.VeterinarianModule), data: { context: 'veterinarian' } },
   { path: '**', component: NotFoundComponent},
 ];
 

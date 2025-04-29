@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client.component';
-import { ListingComponent as MyPetListingComponent } from '../shared/my-pets/listing/listing.component';
-import { ViewComponent as MyPetViewComponent } from '../shared/my-pets/view/view.component';
+import { ListingComponent as MyPetListingComponent } from '../../shared/my-pets/listing/listing.component';
+import { ViewComponent as MyPetViewComponent } from '../../shared/my-pets/view/view.component';
 
 const routes: Routes = [
 	{

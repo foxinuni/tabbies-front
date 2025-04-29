@@ -12,7 +12,7 @@ import { CardComponent as ServiceCardComponent } from './home/services/card/card
 import { TestimoniesComponent } from './home/testimonies/testimonies.component';
 import { CardComponent as TestimonyCardComponent } from './home/testimonies/card/card.component';
 import { ContactComponent } from './home/contact/contact.component';
-import { AdminModule } from './admin/admin.module';
+import { AdminModule } from './panel/admin/admin.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
