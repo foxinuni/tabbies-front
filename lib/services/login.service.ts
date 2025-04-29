@@ -16,6 +16,10 @@ export class LoginService {
 		return this.http.post<any>(`${config.backend_endpoint}/auth/login`, { email, password }, { withCredentials: true });
 	}
 
+	public loginVet(email: string, password: string): Observable<any> {
+		return this.http.post<any>(`${config.backend_endpoint}/auth/login-vet`, { email, password }, { withCredentials: true });
+	}
+
 	public logout(): Observable<void> {
 		return this.http.post<void>(`${config.backend_endpoint}/auth/logout`, {});
 	}
