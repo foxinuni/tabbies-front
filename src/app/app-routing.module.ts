@@ -10,6 +10,19 @@ export enum PanelContext {
 	Veterinarian = 'veterinarian',
 };
 
+export function getPathForContext(context: PanelContext): string {
+	switch (context) {
+		case PanelContext.Admin:
+			return '/admin';
+		case PanelContext.Client:
+			return '/client';
+		case PanelContext.Veterinarian:
+			return '/veterinarian';
+	}
+
+	return '/';
+}
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
