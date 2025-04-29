@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { MedicineService } from 'lib/services/medicine.service';
+import { ModelMapper } from 'lib/services/model-mapper.service';
 import Medicine from 'lib/entities/medicine';
+import { forkJoin, switchMap } from 'rxjs';
 
 @Component({
-  selector: 'medicine-upload',
-  templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.css']
+	selector: 'medicine-upload',
+	templateUrl: './upload.component.html',
+	styleUrls: ['./upload.component.css'],
 })
 export class UploadComponent implements OnInit {
-  medicines: Medicine[] = [];
+	medicines: Medicine[] = [];
 
-  constructor(private http: HttpClient) {}
+	constructor(
+		private readonly medicineService: MedicineService,
+		private readonly modelMapper: ModelMapper,
+	) {}
 
-  ngOnInit(): void {
-    this.loadMedicines();
-  }
-
-  loadMedicines(): void {
-    this.http.get<Medicine[]>('http://localhost:8080/medicines')
-      .subscribe({
-        next: (data) => {
-          this.medicines = data;
-        },
-        error: (err) => {
-          console.error('Error cargando los medicamentos:', err);
-        }
-      });
-  }
+	ngOnInit(): void {
+		this.medicineService.getAllMedicine().pipe(
+			switchMap(models => {
+				const medicines = models.map(model => this.modelMapper.medicineViewToEntity(model));
+				return forkJoin(medicines);
+			})
+		).subscribe(medicines => {
+			this.medicines = medicines;
+		});
+	}
 }
