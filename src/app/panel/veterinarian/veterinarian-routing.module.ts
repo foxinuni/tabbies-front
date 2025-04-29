@@ -33,7 +33,6 @@ const routes: Routes = [
 			{ path: 'users/:id/edit', component: UserEditComponent, data: { context: PanelContext.Veterinarian }  },
 
 			{ path: 'medicine', component: UploadComponent },
-
 		],
 	},
 ];
