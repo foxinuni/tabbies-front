@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { PanelContext } from 'src/app/app-routing.module';
+
 
 import { DashboardComponent } from '../../shared/dashboard/dashboard.component';
 
@@ -23,19 +25,19 @@ const routes: Routes = [
 		children: [
             { path: '', redirectTo: 'pets', pathMatch: 'full' },
 
-			{ path: 'pets', component: PetListingComponent },
-			{ path: 'pets/add', component: PetCreateComponent },
-			{ path: 'pets/:id', component: PetViewComponent },
-			{ path: 'pets/:id/edit', component: PetEditComponent },
+			{ path: 'pets', component: PetListingComponent, data: { context: PanelContext.Admin } },
+			{ path: 'pets/add', component: PetCreateComponent, data: { context: PanelContext.Admin } },
+			{ path: 'pets/:id', component: PetViewComponent, data: { context: PanelContext.Admin } },
+			{ path: 'pets/:id/edit', component: PetEditComponent, data: { context: PanelContext.Admin } },
 
-			{ path: 'users', component: UserListingComponent },
-			{ path: 'users/add', component: UserCreateComponent },
-			{ path: 'users/:id', component: UserViewComponent},
-			{ path: 'users/:id/edit', component: UserEditComponent },
+			{ path: 'users', component: UserListingComponent, data: { context: PanelContext.Admin } },
+			{ path: 'users/add', component: UserCreateComponent, data: { context: PanelContext.Admin } },
+			{ path: 'users/:id', component: UserViewComponent, data: { context: PanelContext.Admin } },
+			{ path: 'users/:id/edit', component: UserEditComponent, data: { context: PanelContext.Admin } },
 
-			{ path: 'medicine', component: UploadComponent },
+			{ path: 'medicine', component: UploadComponent, data: { context: PanelContext.Admin } },
 
-			{ path: 'dashboard',component: DashboardComponent }
+			{ path: 'dashboard',component: DashboardComponent, data: { context: PanelContext.Admin } }
 
 		],
 	},

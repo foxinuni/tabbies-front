@@ -13,6 +13,7 @@ import { EditComponent as UserEditComponent } from '../../shared/users/edit/edit
 import { CreateComponent as UserCreateComponent } from '../../shared/users/create/create.component';
 
 import { UploadComponent } from '../../shared/medicine/upload/upload.component';
+import { PanelContext } from 'src/app/app-routing.module';
 
 const routes: Routes = [
 	{
@@ -21,18 +22,17 @@ const routes: Routes = [
 		children: [
             { path: '', redirectTo: 'pets', pathMatch: 'full' },
 
-			{ path: 'pets', component: PetListingComponent },
-			{ path: 'pets/add', component: PetCreateComponent },
-			{ path: 'pets/:id', component: PetViewComponent },
-			{ path: 'pets/:id/edit', component: PetEditComponent },
+			{ path: 'pets', component: PetListingComponent, data: { context: PanelContext.Veterinarian }  },
+			{ path: 'pets/add', component: PetCreateComponent, data: { context: PanelContext.Veterinarian }  },
+			{ path: 'pets/:id', component: PetViewComponent, data: { context: PanelContext.Veterinarian }  },
+			{ path: 'pets/:id/edit', component: PetEditComponent, data: { context: PanelContext.Veterinarian }  },
 
-			{ path: 'users', component: UserListingComponent },
-			{ path: 'users/add', component: UserCreateComponent },
-			{ path: 'users/:id', component: UserViewComponent},
-			{ path: 'users/:id/edit', component: UserEditComponent },
+			{ path: 'users', component: UserListingComponent, data: { context: PanelContext.Veterinarian }  },
+			{ path: 'users/add', component: UserCreateComponent, data: { context: PanelContext.Veterinarian }  },
+			{ path: 'users/:id', component: UserViewComponent, data: { context: PanelContext.Veterinarian } },
+			{ path: 'users/:id/edit', component: UserEditComponent, data: { context: PanelContext.Veterinarian }  },
 
 			{ path: 'medicine', component: UploadComponent },
-
 		],
 	},
 ];

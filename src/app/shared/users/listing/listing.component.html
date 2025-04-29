@@ -21,6 +21,10 @@
 					<a [routerLink]="[user.id]" class="btn btn-primary">
 						<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
 					</a>
+					<button class="btn btn-secondary" (click)="deleteUser(user.id)" *ngIf="enableDeletion">
+						<ion-icon name="trash-bin"></ion-icon>
+						&nbsp;Eliminar
+					</button>
 				</td>
 			</tr>
 		</tbody>
