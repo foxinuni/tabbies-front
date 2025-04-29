@@ -52,4 +52,8 @@ export class ListingComponent implements OnInit {
 			})
 		}
 	}
+
+	public addProcedure(petId: number) {
+		
+	}
 }

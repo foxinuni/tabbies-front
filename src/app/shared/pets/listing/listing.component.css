@@ -110,4 +110,9 @@ table td {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+	height: 100%;
+}
+
+.same-height {
+	height: 45px;
 }

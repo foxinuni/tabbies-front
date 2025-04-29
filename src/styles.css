@@ -29,11 +29,11 @@ body {
 /* General components */
 .btn-primary,
 .btn-secondary {
-		/* Display */
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
+	/* Display */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 
     /* Spacing */
     padding: 0.5em 1em;
@@ -76,7 +76,6 @@ body {
 	background-color: #8895ea;
 
 	/* Text */
-
     color: #fdfdfd;
 }
 
