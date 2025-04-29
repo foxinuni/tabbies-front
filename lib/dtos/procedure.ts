@@ -8,9 +8,9 @@ export interface ProcedureView {
 }
 
 export interface ProcedureUpsert {
-	quantity: number;
-	notes: string;
-	petId: number;
-	medicineId: number;
-	veterinaryId: number;
-}
+    notes: string;
+    quantity: number;
+    medicineId: number | null;
+    veterinaryId: number | null;
+    petId: number;
+  }

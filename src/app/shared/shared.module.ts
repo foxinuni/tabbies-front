@@ -25,6 +25,8 @@ import { ViewComponent as MyPetsViewComponent } from './my-pets/view/view.compon
 
 import { UploadComponent as MedicineUploadComponent } from './medicine/upload/upload.component';
 
+import { ProcedureCreateComponent } from './procedures/create/create.component';
+
 const declarations = [
 	PanelComponent,
 	HeaderComponent,
@@ -45,6 +47,8 @@ const declarations = [
 	MyPetsViewComponent,
 
 	MedicineUploadComponent,
+
+	ProcedureCreateComponent,
 ];
 
 @NgModule({
