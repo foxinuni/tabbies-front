@@ -1,6 +1,7 @@
 <section>
 	<h1>Lista de Mascotas</h1>
 	<a [routerLink]="['add']" class="btn btn-primary"><ion-icon name="color-wand" class="wand" />Crear Mascota</a>
+	<input type="text" [(ngModel)]="searchTerm" (ngModelChange)="searchPets()" placeholder="Buscar mascota..." class="search-input" />
 	<table>
 		<thead>
 			<tr>
