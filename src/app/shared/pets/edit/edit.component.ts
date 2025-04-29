@@ -6,6 +6,7 @@ import { UserService } from 'lib/services/user.service';
 import { ModelMapper } from 'lib/services/model-mapper.service';
 import Pet from 'lib/entities/pet';
 import User from 'lib/entities/user';
+import { getPathForContext } from 'src/app/app-routing.module';
 
 @Component({
 	selector: 'pet-edit',
@@ -54,11 +55,15 @@ export class EditComponent {
 	}
 
 	public updatePet() {
+		const { context } = this.route.snapshot.data;
+		const path = getPathForContext(context);
+
+
 		if (this.pet) {
 			this.modelMapper.petEntityToUpsert(this.pet).pipe(
 				switchMap(dto => this.petService.updatePet(this.pet?.id ?? 0, dto))
 			).subscribe(() => {
-				this.router.navigate(['..']);
+				this.router.navigate([path, '/pets', this.pet?.id]);
 			});
 		}
 	}

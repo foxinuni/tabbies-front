@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { PetService } from 'lib/services/pet.service';
 import { UserService } from 'lib/services/user.service';
@@ -6,6 +6,7 @@ import { ModelMapper } from 'lib/services/model-mapper.service';
 import Pet from 'lib/entities/pet';
 import User from 'lib/entities/user';
 import { forkJoin, switchMap } from 'rxjs';
+import { getPathForContext } from 'src/app/app-routing.module';
 
 @Component({
 	selector: 'pet-create',
@@ -27,6 +28,7 @@ export class CreateComponent {
 
 	constructor(
 		private router: Router,
+		private route: ActivatedRoute,
 		private userService: UserService,
 		private petService: PetService,
 		private modelMapper: ModelMapper,
@@ -44,10 +46,13 @@ export class CreateComponent {
 	}
 
 	public createPet() {
+		const { context } = this.route.snapshot.data;
+		const path = getPathForContext(context);
+
 		this.modelMapper.petEntityToUpsert(this.pet).pipe(
 			switchMap(dto => this.petService.createPet(dto))
 		).subscribe(() => {
-			this.router.navigate(['..']);
+			this.router.navigate([path, '/pets']);
 		})
 	}
 }
