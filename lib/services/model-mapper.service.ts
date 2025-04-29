@@ -1,19 +1,29 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import { PetService } from './pet.service';
-import { HttpClient } from '@angular/common/http';
 import Pet from 'lib/entities/pet';
 import { PetUpsert, PetView } from 'lib/dtos/pets';
-import { map, Observable, of, switchAll } from 'rxjs';
+import { forkJoin, map, Observable, of, switchAll, switchMap } from 'rxjs';
 import { UserUpsert, UserView } from 'lib/dtos/users';
 import User from 'lib/entities/user';
+import { VeterinarianService } from './veterinarian.service';
+import { VeterinarianUpsert, VeterinarianView } from 'lib/dtos/veterinarian';
+import Veterinary from 'lib/entities/veterinary';
+import { ProcedureUpsert, ProcedureView } from 'lib/dtos/procedure';
+import Procedure from 'lib/entities/procedure';
+import { MedicineService } from './medicine.service';
+import { MedicineUpsert, MedicineView } from 'lib/dtos/medicine';
+import Medicine from 'lib/entities/medicine';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModelMapper {
     constructor(
-        private readonly userService: UserService
+        private readonly userService: UserService,
+		private readonly petService: PetService,
+		private readonly vetService: VeterinarianService,
+		private readonly medicineService: MedicineService,
     ) {}
 
     public petViewToEntity(dto: PetView): Observable<Pet> {
@@ -32,5 +42,35 @@ export class ModelMapper {
 
 	public userEntityToUpsert(model: User): Observable<UserUpsert> {
 		return of({ ...model, password: model.hash });
+	}
+
+	public vetViewToEntity(dto: VeterinarianView): Observable<Veterinary> {
+		return of({ ...dto });
+	}
+
+	public vetEntityToUpsert(model: Veterinary): Observable<VeterinarianUpsert> {
+		return of({ ...model });
+	}
+
+	public medicineViewToEntity(dto: MedicineView): Observable<Medicine> {
+		return of({ ...dto });
+	}
+
+	public medicineEntityToUpsert(model: Medicine): Observable<MedicineUpsert> {
+		return of({ ...model });
+	}
+
+	public procedureViewToEntity(dto: ProcedureView): Observable<Procedure> {
+		return forkJoin([
+			this.vetService.getVetById(dto.veterinaryId).pipe(switchMap(this.vetViewToEntity)),
+			this.petService.getPetById(dto.petId).pipe(switchMap(this.petViewToEntity)),
+			this.medicineService.getMedicineById(dto.medicineId).pipe(switchMap(this.medicineViewToEntity)),
+		]).pipe(
+			map(([veterinarian, pet, medicine]) => ({ ...dto, veterinarian, pet, medicine })),
+		);
+	}
+
+	public procedureEntityToUpsert(model: Procedure): Observable<ProcedureUpsert> {
+		return of({ ...model, veterinaryId: model.veterinarian?.id, petId: model.pet?.id, medicineId: model.medicine?.id });
 	}
 }

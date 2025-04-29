@@ -5,6 +5,6 @@ export default interface Veterinary {
     document: number;
     number: number;
     role: string;
-    specialty: string;
+    speciality: string;
     picture: string;
 }

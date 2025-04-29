@@ -13,22 +13,22 @@ export class UserService {
 	) {}
 
 	public getAllUsers(): Observable<UserView[]> {
-		return this.http.get<UserView[]>(`${config.backend_endpoint}/users/`);
+		return this.http.get<UserView[]>(`${config.backend_endpoint}/procedures/`);
 	}
 
 	public getUserById(id: number): Observable<UserView> {
-		return this.http.get<UserView>(`${config.backend_endpoint}/users/${id}`);
+		return this.http.get<UserView>(`${config.backend_endpoint}/procedures/${id}`);
 	}
 
 	public createUser(dto: UserUpsert): Observable<UserView> {
-		return this.http.post<UserView>(`${config.backend_endpoint}/users/`, dto);
+		return this.http.post<UserView>(`${config.backend_endpoint}/procedures/`, dto);
 	}
 
 	public updateUser(id: number, dto: UserUpsert): Observable<UserView> {
-		return this.http.put<UserView>(`${config.backend_endpoint}/users/${id}`, dto);
+		return this.http.put<UserView>(`${config.backend_endpoint}/procedures/${id}`, dto);
 	}
 
 	public deleteUser(id: number): Observable<void> {
-		return this.http.delete<void>(`${config.backend_endpoint}/users/${id}`);
+		return this.http.delete<void>(`${config.backend_endpoint}/procedures/${id}`);
 	}
 }
