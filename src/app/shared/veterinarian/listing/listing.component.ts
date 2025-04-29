@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { VeterinaryView } from 'lib/dtos/veterinaries';
-import { VeterinaryService } from 'lib/services/veterinary.service';
+import { VeterinarianService } from 'lib/services/veterinarian.service';
+import Veterinary from 'lib/entities/veterinary';
+import { ModelMapper } from 'lib/services/model-mapper.service';
 
 @Component({
   selector: 'veterinary-list',
@@ -8,17 +9,20 @@ import { VeterinaryService } from 'lib/services/veterinary.service';
   styleUrls: ['./listing.component.css']
 })
 
-export class VeterinaryListComponent implements OnInit {
-  veterinaries: VeterinaryView[] = [];
+export class ListingComponent implements OnInit {
+  veterinaries: Veterinary[] = [];
 
-  constructor(private veterinaryService: VeterinaryService) {}
+  constructor(
+	private readonly veterinaryService: VeterinarianService,
+	private readonly modelMapper: ModelMapper,
+) {}
 
   ngOnInit(): void {
     this.loadVeterinaries();
   }
 
   loadVeterinaries(): void {
-    this.veterinaryService.getAllVeterinaries().subscribe({
+    this.veterinaryService.getAllVets().subscribe({
       next: (data) => this.veterinaries = data,
       error: (error) => console.error(error)
     });
@@ -26,7 +30,7 @@ export class VeterinaryListComponent implements OnInit {
 
   deleteVeterinary(id: number): void {
     if (confirm('¿Estás seguro que deseas eliminar este veterinario?')) {
-      this.veterinaryService.deleteVeterinary(id).subscribe({
+      this.veterinaryService.deleteVet(id).subscribe({
         next: () => this.loadVeterinaries(),
         error: (error) => console.error(error)
       });

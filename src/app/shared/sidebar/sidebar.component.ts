@@ -29,6 +29,7 @@ export class SidebarComponent {
 					{ label: 'Dashboard', icon: 'stats-chart', route: '/admin/dashboard' },
 					{ label: 'Mascotas', icon: 'paw', route: '/admin/pets' },
 					{ label: 'Usuarios', icon: 'person', route: '/admin/users' },
+					{ label: 'Veterinarios', icon: 'medical', route: '/admin/veterinarians' },
 					{ label: 'Medicamentos', icon: 'medkit', route: '/admin/medicine' },
 				];
 				break;

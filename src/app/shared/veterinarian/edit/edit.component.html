@@ -3,45 +3,44 @@
       <div class="veterinary-details">
         <h1>Editar Veterinario</h1>
       </div>
-  
+
       <form class="form" (ngSubmit)="updateVeterinary()">
         <div class="input-span">
           <label for="name">Nombre</label>
           <input id="name" name="name" type="text" [(ngModel)]="veterinary.name" required />
         </div>
-  
+
         <div class="input-span">
           <label for="email">Correo</label>
           <input id="email" name="email" type="email" [(ngModel)]="veterinary.email" required />
         </div>
-  
+
         <div class="input-span">
           <label for="document">Documento</label>
           <input id="document" name="document" type="number" [(ngModel)]="veterinary.document" required />
         </div>
-  
+
         <div class="input-span">
           <label for="number">Número de Teléfono</label>
           <input id="number" name="number" type="tel" [(ngModel)]="veterinary.number" required />
         </div>
-  
+
         <div class="input-span">
           <label for="role">Rol</label>
           <input id="role" name="role" type="text" [(ngModel)]="veterinary.role" required />
         </div>
-  
+
         <div class="input-span">
           <label for="specialty">Especialidad</label>
-          <input id="specialty" name="specialty" type="text" [(ngModel)]="veterinary.specialty" required />
+          <input id="specialty" name="specialty" type="text" [(ngModel)]="veterinary.speciality" required />
         </div>
-  
+
         <div class="input-span">
           <label for="picture">Foto (URL)</label>
           <input id="picture" name="picture" type="text" [(ngModel)]="veterinary.picture" />
         </div>
-  
+
         <button type="submit">Guardar Cambios</button>
       </form>
     </div>
   </section>
-  

@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VeterinaryService } from 'lib/services/veterinary.service';
-import { VeterinaryView } from 'lib/dtos/veterinaries';
+import { VeterinarianService } from 'lib/services/veterinarian.service';
+import { VeterinarianView } from 'lib/dtos/veterinarian';
 
 @Component({
   selector: 'veterinary-view',
   templateUrl: './view.component.html'
 })
-export class VeterinaryViewComponent implements OnInit {
-  veterinary!: VeterinaryView;
+export class ViewComponent {
+  veterinary!: VeterinarianView;
 
   constructor(
     private route: ActivatedRoute,
-    private veterinaryService: VeterinaryService
+    private veterinaryService: VeterinarianService
   ) {}
 
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.veterinaryService.getVeterinaryById(id).subscribe({
+    this.veterinaryService.getVetById(id).subscribe({
       next: (data) => this.veterinary = data,
       error: (error) => console.error(error)
     });
