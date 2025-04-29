@@ -1,0 +1,12 @@
+<section class="veterinary-details" *ngIf="veterinary">
+    <h2>Veterinario: {{ veterinary.name }}</h2>
+  
+    <img *ngIf="veterinary.picture" [src]="veterinary.picture" alt="Foto de {{ veterinary.name }}" width="150" />
+  
+    <p><strong>Email:</strong> {{ veterinary.email }}</p>
+    <p><strong>Documento:</strong> {{ veterinary.document }}</p>
+    <p><strong>Teléfono:</strong> {{ veterinary.number }}</p>
+    <p><strong>Rol:</strong> {{ veterinary.role }}</p>
+    <p><strong>Especialidad:</strong> {{ veterinary.specialty }}</p>
+  </section>
+  

@@ -1,0 +1,49 @@
+.btn-main {
+    background-color: #fbacac;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+    text-decoration: none;
+  }
+  
+  .btn-main:hover {
+    background-color: #f98484;
+  }
+  
+  .action-btn {
+    background-color: #fbacac;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .action-btn:hover {
+    background-color: #f98484;
+  }
+  
+  .action-btn.delete {
+    background-color: #ff7b7b;
+  }
+  
+  .action-btn.delete:hover {
+    background-color: #e05858;
+  }
+  
+  .icon {
+    font-size: 1.2rem;
+    pointer-events: none;
+  }
+  

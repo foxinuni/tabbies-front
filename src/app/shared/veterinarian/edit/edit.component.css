@@ -1,0 +1,105 @@
+:host {
+	display: contents;
+	width: 100%;
+}
+
+section {
+	background-image: url("/assets/images/backCreate.png");
+	background-attachment: scroll;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width: 100%;
+	height: auto;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 4em;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	background-color: #fdfdfd;
+	justify-content: center;
+	align-items: center;
+	width: 700px;
+	border-radius: 8px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+	padding: 1.5em 0;
+}
+
+.veterinary-details {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.veterinary-details h1 {
+	padding: 20px;
+	font-size: 2em;
+}
+
+/* Form styles */
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.form input,
+.form select {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	border-radius: 5px;
+	width: 80%;
+	padding: 1rem 0.75rem;
+	border: 1px solid #e6e6e6;
+	background-color: #fdfdfd;
+	margin-left: 10%;
+}
+
+.form .input-span {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 1%;
+}
+
+.form label {
+	align-self: 50%;
+	font-weight: 600;
+	margin-left: 10%;
+}
+
+.form button {
+	border: none;
+	background-color: #6c63ff;
+	color: white;
+	padding: 0.75rem 1.5rem;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 1em;
+	transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+	background-color: #5751d9;
+}
+
+.form span {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.span {
+	text-decoration: none;
+}
