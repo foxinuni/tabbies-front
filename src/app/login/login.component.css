@@ -60,6 +60,18 @@ input {
     border-radius: 5px;
 }
 
+select {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 10px;
+	border: 1px solid #e6e6e6;
+	background-color: inherit;
+	border-radius: 5px;
+}
+
 .input-group {
     width: 100%;
     display: flex;
