@@ -2,33 +2,33 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { config } from './config';
-import { UserUpsert, UserView } from 'lib/dtos/users';
+import { ProcedureUpsert, ProcedureView } from 'lib/dtos/procedure';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ProcedureService {
 	constructor(
 		private readonly http: HttpClient
 	) {}
 
-	public getAllUsers(): Observable<UserView[]> {
-		return this.http.get<UserView[]>(`${config.backend_endpoint}/procedures/`);
+	public getAllProcedures(): Observable<ProcedureView[]> {
+		return this.http.get<ProcedureView[]>(`${config.backend_endpoint}/procedures/`);
 	}
 
-	public getUserById(id: number): Observable<UserView> {
-		return this.http.get<UserView>(`${config.backend_endpoint}/procedures/${id}`);
+	public getProcedureById(id: number): Observable<ProcedureView> {
+		return this.http.get<ProcedureView>(`${config.backend_endpoint}/procedures/${id}`);
 	}
 
-	public createUser(dto: UserUpsert): Observable<UserView> {
-		return this.http.post<UserView>(`${config.backend_endpoint}/procedures/`, dto);
+	public createProcedure(dto: ProcedureUpsert): Observable<ProcedureView> {
+		return this.http.post<ProcedureView>(`${config.backend_endpoint}/procedures/`, dto);
 	}
 
-	public updateUser(id: number, dto: UserUpsert): Observable<UserView> {
-		return this.http.put<UserView>(`${config.backend_endpoint}/procedures/${id}`, dto);
+	public updateProcedure(id: number, dto: ProcedureUpsert): Observable<ProcedureView> {
+		return this.http.put<ProcedureView>(`${config.backend_endpoint}/procedures/${id}`, dto);
 	}
 
-	public deleteUser(id: number): Observable<void> {
+	public deleteProcedure(id: number): Observable<void> {
 		return this.http.delete<void>(`${config.backend_endpoint}/procedures/${id}`);
 	}
 }

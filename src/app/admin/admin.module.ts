@@ -31,7 +31,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UploadComponent,
     EditComponent,
     CreateComponent,
-    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
 	HttpClientModule,

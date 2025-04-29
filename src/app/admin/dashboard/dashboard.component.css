@@ -1,37 +1,36 @@
 :host {
-	width: 100%;
 	display: contents;
+	width: 100%;
 }
-  section {
+
+section {
 	font-family: system-ui, -apple-system, sans-serif;
 	background-color: #f3f4f6;
 	background-size: contain;
 	color: #374151;
-	width: 100%;
-  }
 
-  .container {
 	margin: 0 auto;
 	padding: 2rem 1rem;
-  }
+}
 
-  .dashboard-title {
+.dashboard-title {
 	text-align: center;
 	font-size: 2.5rem;
 	color: #374151;
 	margin-bottom: 2rem;
-	font-family: 'Segoe Script', cursive, system-ui;
-  }
+}
 
-  /* Grid layout */
-  .dashboard-grid {
+/* Grid layout */
+.dashboard-grid {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 1fr;
-  }
+}
 
-  /* Card styles */
-  .stat-card, .chart-card, .treatments-card {
+/* Card styles */
+.stat-card,
+.chart-card,
+.treatments-card {
 	background: white;
 	border-radius: 0.5rem;
 	padding: 1.5rem;
@@ -40,100 +39,102 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column ;
-  }
+	flex-direction: column;
+}
 
-  .stat-card:hover, .chart-card:hover, .treatments-card:hover {
+.stat-card:hover,
+.chart-card:hover,
+.treatments-card:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .stat-card h3 {
+.stat-card h3 {
 	font-size: 0.875rem;
 	color: #6b7280;
 	text-align: center;
 	margin-bottom: 0.5rem;
-  }
+}
 
-  .stat-value {
+.stat-value {
 	font-size: 2rem;
 	font-weight: bold;
 	text-align: center;
 	color: #111827;
-  }
+}
 
-  /* Chart styles */
-  .chart-card h3 {
+/* Chart styles */
+.chart-card h3 {
 	font-size: 1.125rem;
 	color: #374151;
 	margin-bottom: 1rem;
-  }
+}
 
-
-
-
-  /* Treatments list styles */
-  .treatments-list {
+/* Treatments list styles */
+.treatments-list {
 	display: flex;
 	justify-content: center;
 	gap: 4rem;
-  }
+}
 
-  .treatment-item {
+.treatment-item {
 	display: flex;
 	align-items: center;
-  }
+}
 
-  .bullet {
+.bullet {
 	color: #f59e0b;
 	font-weight: bold;
 	margin-right: 0.5rem;
-  }
+}
 
-  /* Responsive layout */
-  @media (min-width: 768px) {
+/* Responsive layout */
+@media (min-width: 768px) {
 	.dashboard-grid {
-	  grid-template-columns: repeat(3, 1fr);
-	  grid-template-areas:
-		"left center right"
-		"bottom bottom bottom";
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-areas:
+			"left center right"
+			"bottom bottom bottom";
 	}
 
 	.left-column {
-	  grid-area: left;
-	  display: grid;
-	  gap: 1rem;
+		grid-area: left;
+		display: grid;
+		gap: 1rem;
 	}
 
 	.center-column {
-	  grid-area: center;
-	  display: grid;
-	  gap: 1rem;
+		grid-area: center;
+		display: grid;
+		gap: 1rem;
 	}
 
 	.right-column {
-	  grid-area: right;
-	  display: grid;
-	  gap: 1rem;
+		grid-area: right;
+		display: grid;
+		gap: 1rem;
 	}
 
 	.bottom-row {
-	  grid-area: bottom;
+		grid-area: bottom;
 	}
-  }
+}
 
-  /* Animations */
-  @keyframes fadeIn {
+/* Animations */
+@keyframes fadeIn {
 	from {
-	  opacity: 0;
-	  transform: translateY(10px);
+		opacity: 0;
+		transform: translateY(10px);
 	}
-	to {
-	  opacity: 1;
-	  transform: translateY(0);
-	}
-  }
 
-  .stat-card, .chart-card, .treatments-card {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.stat-card,
+.chart-card,
+.treatments-card {
 	animation: fadeIn 0.3s ease-out;
-  }
+}
