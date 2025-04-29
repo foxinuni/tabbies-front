@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListingComponent as PetListingComponent } from './pets/listing/listing.component';
-import { CreateComponent as PetCreateComponent } from './pets/create/create.component';
-import { ViewComponent as PetViewComponent } from './pets/view/view.component';
-import { EditComponent as PetEditComponent } from './pets/edit/edit.component';
 import { VeterinarianComponent } from './veterinarian.component';
-import { ListingComponent as UserListingComponent } from './users/listing/listing.component';
-import { ViewComponent as UserViewComponent } from './users/view/view.component';
-import { UploadComponent } from './medicine/upload/upload.component';
-import { EditComponent as UserEditComponent } from './users/edit/edit.component';
-import { CreateComponent as UserCreateComponent } from './users/create/create.component';
+
+import { ListingComponent as PetListingComponent } from '../shared/pets/listing/listing.component';
+import { CreateComponent as PetCreateComponent } from '../shared/pets/create/create.component';
+import { ViewComponent as PetViewComponent } from '../shared/pets/view/view.component';
+import { EditComponent as PetEditComponent } from '../shared/pets/edit/edit.component';
+
+import { ListingComponent as UserListingComponent } from '../shared/users/listing/listing.component';
+import { ViewComponent as UserViewComponent } from '../shared/users/view/view.component';
+import { EditComponent as UserEditComponent } from '../shared/users/edit/edit.component';
+import { CreateComponent as UserCreateComponent } from '../shared/users/create/create.component';
+
+import { UploadComponent } from '../shared/medicine/upload/upload.component';
 
 const routes: Routes = [
 	{

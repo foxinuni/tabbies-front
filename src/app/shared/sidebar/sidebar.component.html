@@ -1,0 +1,11 @@
+<aside>
+    <nav>
+        <ul>
+			<li *ngFor="let item of items">
+				<a [routerLink]="item.route">
+					<ion-icon [name]="item.icon"></ion-icon> {{ item.label }}
+				</a>
+			</li>
+        </ul>
+    </nav>
+</aside>

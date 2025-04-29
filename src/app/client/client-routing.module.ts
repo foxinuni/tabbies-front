@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client.component';
-import { ListingComponent as PetListingComponent } from './pets/listing/listing.component';
-import { ViewComponent as PetViewComponent } from './pets/view/view.component';
+import { ListingComponent as MyPetListingComponent } from '../shared/my-pets/listing/listing.component';
+import { ViewComponent as MyPetViewComponent } from '../shared/my-pets/view/view.component';
 
 const routes: Routes = [
 	{
@@ -10,8 +10,8 @@ const routes: Routes = [
 		component: ClientComponent,
 		children: [
 			{ path: '', redirectTo: 'pets', pathMatch: 'full' },
-			{ path: 'pets', component: PetListingComponent },
-			{ path: 'pets/:id', component: PetViewComponent },
+			{ path: 'pets', component: MyPetListingComponent },
+			{ path: 'pets/:id', component: MyPetViewComponent },
 		],
 	},
 ];
@@ -20,4 +20,4 @@ const routes: Routes = [
 	imports: [RouterModule.forChild(routes)],
 	exports: [RouterModule],
 })
-export class ClientRoutingComponent {}
+export class ClientRoutingModule {}
