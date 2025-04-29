@@ -58,12 +58,11 @@ export class EditComponent {
 		const { context } = this.route.snapshot.data;
 		const path = getPathForContext(context);
 
-
 		if (this.pet) {
 			this.modelMapper.petEntityToUpsert(this.pet).pipe(
 				switchMap(dto => this.petService.updatePet(this.pet?.id ?? 0, dto))
 			).subscribe(() => {
-				this.router.navigate([path, '/pets', this.pet?.id]);
+				this.router.navigate([path, 'pets', this.pet?.id]);
 			});
 		}
 	}
