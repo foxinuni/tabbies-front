@@ -1,6 +1,6 @@
 <section>
 	<h1>Lista de Mascotas</h1>
-	<a routerLink="/admin/pets/add" class="btn btn-primary"><ion-icon name="color-wand" class="wand" />Crear Mascota</a>
+	<a [routerLink]="['add']" class="btn btn-primary"><ion-icon name="color-wand" class="wand" />Crear Mascota</a>
 	<table>
 		<thead>
 			<tr>
@@ -18,7 +18,7 @@
 				<td>{{ pet.weight }}</td>
 				<td>{{ pet.birthDate | date : "dd-MM-yyyy" }}</td>
 				<td class="center">
-					<a [routerLink]="['/admin/pets', pet.id]" class="btn btn-primary" *ngIf="!pet.disabled">
+					<a [routerLink]="[pet.id]" class="btn btn-primary" *ngIf="!pet.disabled">
 						<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
 					</a>
 
@@ -30,8 +30,6 @@
 					<button class="btn btn-secondary" (click)="toggleStatus(pet.id, true)" *ngIf="pet.disabled">
 						&nbsp;Activar
 					</button>
-
-		
 				</td>
 			</tr>
 		</tbody>

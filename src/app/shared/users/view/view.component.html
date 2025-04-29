@@ -9,18 +9,18 @@
 		<div class="bottom-section">
 			<div class="user-info">
 				<p>
-					<strong>Documento:  </strong> <span>{{ user.document }}</span>
+					<strong>Documento: </strong> <span>{{ user.document }}</span>
 				</p>
 				<p>
-					<strong>Email:  </strong> <span>{{ user.email }}</span>
+					<strong>Email: </strong> <span>{{ user.email }}</span>
 				</p>
 				<p>
 					<strong>Numero: </strong> <span>{{ user.number }}</span>
 				</p>
 			</div>
 			<span>
-				<a class="btn-primary" routerLink="/admin/users">Volver</a>
-				<a class="btn-secondary" [routerLink]="['/admin/users', user.id, 'edit']">Editar</a>
+				<a class="btn-primary" [routerLink]="['..']">Volver</a>
+				<a class="btn-secondary" [routerLink]="['edit']">Editar</a>
 			</span>
 		</div>
 	</div>

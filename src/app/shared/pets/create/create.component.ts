@@ -47,7 +47,7 @@ export class CreateComponent {
 		this.modelMapper.petEntityToUpsert(this.pet).pipe(
 			switchMap(dto => this.petService.createPet(dto))
 		).subscribe(() => {
-			this.router.navigate(['/admin/pets']);
+			this.router.navigate(['..']);
 		})
 	}
 }

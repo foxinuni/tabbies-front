@@ -58,7 +58,7 @@ export class EditComponent {
 			this.modelMapper.petEntityToUpsert(this.pet).pipe(
 				switchMap(dto => this.petService.updatePet(this.pet?.id ?? 0, dto))
 			).subscribe(() => {
-				this.router.navigate(['/admin/pets', this.pet?.id]);
+				this.router.navigate(['..']);
 			});
 		}
 	}

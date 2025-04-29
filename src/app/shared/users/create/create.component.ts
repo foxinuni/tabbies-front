@@ -30,7 +30,7 @@ export class CreateComponent {
 		this.modelMapper.userEntityToUpsert(this.user).pipe(
 			switchMap(dto => this.userService.createUser(dto))
 		).subscribe(() => {
-			this.router.navigate(['/admin/users']);
+			this.router.navigate(['..']);
 		})
 	}
 }

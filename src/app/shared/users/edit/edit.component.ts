@@ -36,7 +36,7 @@ export class EditComponent implements OnInit {
 			this.modelMapper.userEntityToUpsert(this.user).pipe(
 				switchMap(dto => this.userService.updateUser(this.user?.id ?? 0, dto))
 			).subscribe(() => {
-				this.router.navigate(['/admin/users', this.user?.id]);
+				this.router.navigate(['..']);
 			});
 		}
 	}

@@ -39,9 +39,9 @@ export class SidebarComponent {
 				break;
 			case PanelContext.Veterinarian:
 				this.items = [
-					{ label: 'Mascotas', icon: 'paw', route: '/admin/pets' },
-					{ label: 'Usuarios', icon: 'person', route: '/admin/users' },
-					{ label: 'Medicamentos', icon: 'medkit', route: '/admin/medicine' },
+					{ label: 'Mascotas', icon: 'paw', route: '/veterinarian/pets' },
+					{ label: 'Usuarios', icon: 'person', route: '/veterinarian/users' },
+					{ label: 'Medicamentos', icon: 'medkit', route: '/veterinarian/medicine' },
 				];
 				break;
 			default:
