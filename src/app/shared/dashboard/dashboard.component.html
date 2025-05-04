@@ -1,77 +1,68 @@
 <section>
 	<h1 class="dashboard-title">Dashboard</h1>
 
-	<div class="dashboard-grid">
-		<!-- Left column -->
-		<div class="left-column">
-			<div class="stat-card">
+	<!-- Estadísticas Generales -->
+	<div class="dashboard-section">
+		<h2 class="section-title">Estadísticas Generales</h2>
+		<div class="dashboard-grid">
+			<div class="stat-card pastel-pink">
 				<h3>Usuarios Activos</h3>
 				<p class="stat-value">{{ stats.users }}</p>
 			</div>
-
-			<div class="stat-card">
+			<div class="stat-card pastel-blue">
 				<h3>Veterinarios Activos</h3>
 				<p class="stat-value">{{ stats.veterinarians }}</p>
 			</div>
-
-			<div class="stat-card">
-				<h3>Gatos registrados</h3>
+			<div class="stat-card pastel-pink">
+				<h3>Gatos Registrados</h3>
 				<p class="stat-value">{{ stats.pets }}</p>
 			</div>
-
-			<div class="stat-card">
-				<h3>Gatos en Tratamiento</h3>
-				<p class="stat-value">5</p>
-			</div>
-		</div>
-
-		<!-- Center column -->
-		<div class="center-column">
-			<div class="stat-card">
+			<div class="stat-card pastel-blue">
 				<h3>Tratamientos</h3>
 				<p class="stat-value">{{ stats.procedures }}</p>
 			</div>
-
-			<div class="stat-card">
-				<h3>Ganancias totales</h3>
-				<p class="stat-value">$0.00</p>
-			</div>
-		</div>
-
-		<!-- Right column -->
-		<div class="right-column">
-			<div class="stat-card">
+			<div class="stat-card pastel-pink">
 				<h3>Medicinas</h3>
 				<p class="stat-value">{{ stats.medicines }}</p>
 			</div>
+		</div>
+	</div>
 
-			<div class="stat-card">
+	<!-- Sección Financiera -->
+	<div class="dashboard-section">
+		<h2 class="section-title">Sección Financiera</h2>
+		<div class="dashboard-grid">
+			<div class="stat-card pastel-blue wide-card">
+				<h3>Ganancias Totales</h3>
+				<p class="stat-value">${{ stats.earnings.toFixed(2) }}</p>
+			</div>
+			<div class="stat-card pastel-pink wide-card">
 				<h3>Inversiones</h3>
-				<p class="stat-value">$0.00</p>
+				<p class="stat-value">${{ stats.investment.toFixed(2) }}</p>
+			</div>
+			<div class="stat-card chart-card">
+				<h3>Gráfico Comparativo</h3>
+				<svg width="200" height="160">
+					<rect
+						x="30"
+						[attr.y]="100 - stats.earnings / 1000000"
+						width="40"
+						[attr.height]="stats.earnings / 1000000"
+						fill="#fbacac"
+						class="bar"
+					/>
+					<rect
+						x="120"
+						[attr.y]="100 - stats.investment / 1000000"
+						width="40"
+						[attr.height]="stats.investment / 1000000"
+						fill="#a0c4ff"
+						class="bar"
+					/>
+					<text x="30" y="130" font-size="14" fill="#444" text-anchor="start">Ganancias</text>
+					<text x="120" y="130" font-size="14" fill="#444" text-anchor="start">Inversión</text>
+				</svg>
 			</div>
 		</div>
-
-		<!-- Bottom row -->
-		<!--
-		<div class="bottom-row">
-			<div class="treatments-card">
-				<h3>Tratamientos populares</h3>
-				<div class="treatments-list">
-					<div class="treatment-item">
-						<span class="bullet">•</span>
-						<span>Tratamiento1</span>
-					</div>
-					<div class="treatment-item">
-						<span class="bullet">•</span>
-						<span>Tratamiento2</span>
-					</div>
-					<div class="treatment-item">
-						<span class="bullet">•</span>
-						<span>Tratamiento3</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		-->
 	</div>
 </section>
