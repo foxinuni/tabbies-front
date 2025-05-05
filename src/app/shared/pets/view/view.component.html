@@ -31,8 +31,7 @@
         <h2>Procedimientos</h2>
         <ul *ngIf="procedures.length > 0; else noProcedures">
             <li *ngFor="let procedure of procedures">
-                <strong>{{ procedure.id }}</strong> - {{ procedure.notes }}
-            </li>
+                <strong>{{ procedure.id }}</strong> - {{ procedure.notes }} - {{procedure.quantity}} 
         </ul>
         <ng-template #noProcedures>
             <p>No hay procedimientos registrados para esta mascota.</p>
