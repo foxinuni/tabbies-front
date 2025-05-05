@@ -16,6 +16,11 @@ import { ViewComponent as UserViewComponent } from '../../shared/users/view/view
 import { EditComponent as UserEditComponent } from '../../shared/users/edit/edit.component';
 import { CreateComponent as UserCreateComponent } from '../../shared/users/create/create.component';
 
+import { ListingComponent as VetListingComponent } from '../../shared/veterinarian/listing/listing.component';
+import { ViewComponent as VetViewComponent } from '../../shared/veterinarian/view/view.component';
+import { EditComponent as VetEditComponent } from '../../shared/veterinarian/edit/edit.component';
+import { CreateComponent as VetCreateComponent } from '../../shared/veterinarian/create/create.component';
+
 import { UploadComponent } from '../../shared/medicine/upload/upload.component';
 
 const routes: Routes = [
@@ -24,6 +29,8 @@ const routes: Routes = [
 		component: AdminComponent,
 		children: [
             { path: '', redirectTo: 'pets', pathMatch: 'full' },
+
+			{ path: 'dashboard',component: DashboardComponent, data: { context: PanelContext.Admin } },
 
 			{ path: 'pets', component: PetListingComponent, data: { context: PanelContext.Admin } },
 			{ path: 'pets/add', component: PetCreateComponent, data: { context: PanelContext.Admin } },
@@ -37,8 +44,10 @@ const routes: Routes = [
 
 			{ path: 'medicine', component: UploadComponent, data: { context: PanelContext.Admin } },
 
-			{ path: 'dashboard',component: DashboardComponent, data: { context: PanelContext.Admin } }
-
+			{ path: 'veterinarians', component: VetListingComponent, data: { context: PanelContext.Admin } },
+			{ path: 'veterinarians/add', component: VetCreateComponent, data: { context: PanelContext.Admin } },
+			{ path: 'veterinarians/:id', component: VetViewComponent, data: { context: PanelContext.Admin } },
+			{ path: 'veterinarians/:id/edit', component: VetEditComponent, data: { context: PanelContext.Admin } },
 		],
 	},
 ];

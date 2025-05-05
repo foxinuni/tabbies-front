@@ -26,14 +26,15 @@
 						<ion-icon name="medkit"></ion-icon>
 					</a>
 
-					<button class="btn btn-secondary" (click)="toggleStatus(pet.id, false)" *ngIf="!pet.disabled">
-						<ion-icon name="trash-bin"></ion-icon>
-						&nbsp;
+					<button class="btn btn-primary same-height" (click)="addProcedure(pet.id)" *ngIf="!pet.disabled">
+						<ion-icon name="color-wand"></ion-icon>
 					</button>
 
-
-					<button class="btn btn-secondary" (click)="toggleStatus(pet.id, true)" *ngIf="pet.disabled">
-						&nbsp;
+					<button class="btn btn-secondary same-height" (click)="toggleStatus(pet.id, false)" *ngIf="!pet.disabled">
+						<ion-icon name="trash-bin"></ion-icon>
+					</button>
+					<button class="btn btn-secondary same-height" (click)="toggleStatus(pet.id, true)" *ngIf="pet.disabled">
+						<ion-icon name="checkmark-circle"></ion-icon>
 					</button>
 				</td>
 			</tr>

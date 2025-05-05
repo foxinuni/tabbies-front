@@ -25,7 +25,12 @@ import { ViewComponent as MyPetsViewComponent } from './my-pets/view/view.compon
 
 import { UploadComponent as MedicineUploadComponent } from './medicine/upload/upload.component';
 
-import { ProcedureCreateComponent } from './procedures/create/create.component';
+import { CreateComponent as ProcedureCreateComponent } from './procedures/create/create.component';
+
+import { ListingComponent as VetListingComponent } from './veterinarian/listing/listing.component';
+import { ViewComponent as VetViewComponent } from './veterinarian/view/view.component';
+import { EditComponent as VetEditComponent } from './veterinarian/edit/edit.component';
+import { CreateComponent as VetCreateComponent } from './veterinarian/create/create.component';
 
 const declarations = [
 	PanelComponent,
@@ -49,6 +54,11 @@ const declarations = [
 	MedicineUploadComponent,
 
 	ProcedureCreateComponent,
+
+	VetListingComponent,
+	VetCreateComponent,
+	VetEditComponent,
+	VetViewComponent,
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ import { VeterinarianService } from 'lib/services/veterinarian.service';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class ProcedureCreateComponent {
+export class CreateComponent {
   medicines: Medicine[] = [];
   veterinaries: Veterinary[] = [];
 
@@ -71,12 +71,12 @@ export class ProcedureCreateComponent {
       alert('Por favor, completa todos los campos del tratamiento.');
       return;
     }
-  
+
     this.treatment.medicineId = Number(this.treatment.medicineId);
     this.treatment.veterinaryId = Number(this.treatment.veterinaryId);
-  
+
     console.log('Asignando tratamiento:', this.treatment);
-  
+
     this.procedureService.createProcedure(this.treatment).subscribe({
       next: () => {
         alert('Tratamiento asignado exitosamente.');
@@ -88,5 +88,5 @@ export class ProcedureCreateComponent {
       }
     });
   }
-  
+
 }

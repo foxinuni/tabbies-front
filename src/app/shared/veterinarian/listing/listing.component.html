@@ -1,0 +1,29 @@
+<section>
+    <h1>Lista de Veterinarios</h1>
+    <a routerLink="/admin/veterinarians/add" class="btn btn-primary">Crear Veterinario</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Especialidad</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let veterinary of veterinaries">
+          <td>{{ veterinary.name }}</td>
+          <td>{{ veterinary.email }}</td>
+          <td>{{ veterinary.speciality }}</td>
+          <td class="center">
+            <a [routerLink]="[veterinary.id]" class="btn-primary">
+				<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
+			</a>
+            <button (click)="deleteVeterinary(veterinary.id)" class="btn-secondary">
+				<ion-icon name="trash-bin"></ion-icon>&nbsp;Eliminar
+			</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
