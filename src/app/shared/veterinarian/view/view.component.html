@@ -1,11 +1,34 @@
-<section class="veterinary-details" *ngIf="veterinary">
-    <h2>Veterinario: {{ veterinary.name }}</h2>
-
-    <img *ngIf="veterinary.picture" [src]="veterinary.picture" alt="Foto de {{ veterinary.name }}" width="150" />
-
-    <p><strong>Email:</strong> {{ veterinary.email }}</p>
-    <p><strong>Documento:</strong> {{ veterinary.document }}</p>
-    <p><strong>Teléfono:</strong> {{ veterinary.number }}</p>
-    <p><strong>Rol:</strong> {{ veterinary.role }}</p>
-    <p><strong>Especialidad:</strong> {{ veterinary.speciality }}</p>
-  </section>
+<section *ngIf="veterinary" class="pet-details">
+	<div class="card">
+		<div class="top-section">
+			<h1>{{ veterinary.name }}</h1>
+			<div class="img-con">
+				<img [src]="veterinary.picture" alt="Veterinarian picture" />
+			</div>
+		</div>
+		<div class="bottom-section">
+			<div class="user-info">
+				<p>
+					<strong>Documento: </strong>
+					<span>{{ veterinary.document }}</span>
+				</p>
+				<p>
+					<strong>Email: </strong>
+					<span>{{ veterinary.email }}</span>
+				</p>
+				<p>
+					<strong>Teléfono: </strong>
+					<span>{{ veterinary.number }}</span>
+				</p>
+				<p>
+					<strong>Especialidad: </strong>
+					<span>{{ veterinary.speciality }}</span>
+				</p>
+			</div>
+			<span>
+				<a class="btn-primary" [routerLink]="['..']">Volver</a>
+				<a class="btn-secondary" [routerLink]="['edit']">Editar</a>
+			</span>
+		</div>
+	</div>
+</section>

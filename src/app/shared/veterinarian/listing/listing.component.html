@@ -15,10 +15,13 @@
           <td>{{ veterinary.name }}</td>
           <td>{{ veterinary.email }}</td>
           <td>{{ veterinary.speciality }}</td>
-          <td>
-            <a [routerLink]="['/admin/veterinarians', veterinary.id]" class="btn btn-primary">Ver</a>
-            <a [routerLink]="['/admin/veterinarians', veterinary.id, 'edit']" class="btn btn-warning">Editar</a>
-            <button (click)="deleteVeterinary(veterinary.id)" class="btn btn-danger">Eliminar</button>
+          <td class="center">
+            <a [routerLink]="[veterinary.id]" class="btn-primary">
+				<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
+			</a>
+            <button (click)="deleteVeterinary(veterinary.id)" class="btn-secondary">
+				<ion-icon name="trash-bin"></ion-icon>&nbsp;Eliminar
+			</button>
           </td>
         </tr>
       </tbody>

@@ -5,7 +5,8 @@ import { VeterinarianView } from 'lib/dtos/veterinarian';
 
 @Component({
   selector: 'veterinary-view',
-  templateUrl: './view.component.html'
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.css']
 })
 export class ViewComponent {
   veterinary!: VeterinarianView;

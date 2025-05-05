@@ -1,46 +1,29 @@
-<section>
-    <div class="card">
-      <div class="veterinary-details">
-        <h1>Editar Veterinario</h1>
-      </div>
+<section *ngIf="veterinary">
+	<div class="form">
+		<h1>Editar Veterinario</h1>
+		<form (ngSubmit)="updateVeterinary()">
+			<label for="name">Nombre</label>
+			<input id="name" name="name" type="text" [(ngModel)]="veterinary.name" required />
 
-      <form class="form" (ngSubmit)="updateVeterinary()">
-        <div class="input-span">
-          <label for="name">Nombre</label>
-          <input id="name" name="name" type="text" [(ngModel)]="veterinary.name" required />
-        </div>
+			<label for="email">Correo</label>
+			<input id="email" name="email" type="email" [(ngModel)]="veterinary.email" required />
 
-        <div class="input-span">
-          <label for="email">Correo</label>
-          <input id="email" name="email" type="email" [(ngModel)]="veterinary.email" required />
-        </div>
+			<label for="document">Documento</label>
+			<input id="document" name="document" type="number" [(ngModel)]="veterinary.document" required />
 
-        <div class="input-span">
-          <label for="document">Documento</label>
-          <input id="document" name="document" type="number" [(ngModel)]="veterinary.document" required />
-        </div>
+			<label for="number">Teléfono</label>
+			<input id="number" name="number" type="tel" [(ngModel)]="veterinary.number" required />
 
-        <div class="input-span">
-          <label for="number">Número de Teléfono</label>
-          <input id="number" name="number" type="tel" [(ngModel)]="veterinary.number" required />
-        </div>
+			<label for="specialty">Especialidad</label>
+			<input id="specialty" name="specialty" type="text" [(ngModel)]="veterinary.speciality" required />
 
-        <div class="input-span">
-          <label for="role">Rol</label>
-          <input id="role" name="role" type="text" [(ngModel)]="veterinary.role" required />
-        </div>
+			<label for="picture">Foto (URL)</label>
+			<input id="picture" name="picture" type="text" [(ngModel)]="veterinary.picture" />
 
-        <div class="input-span">
-          <label for="specialty">Especialidad</label>
-          <input id="specialty" name="specialty" type="text" [(ngModel)]="veterinary.speciality" required />
-        </div>
+			<input type="hidden" [(ngModel)]="veterinary.id" name="id" />
+			<input type="hidden" [(ngModel)]="veterinary.role" name="role" />
 
-        <div class="input-span">
-          <label for="picture">Foto (URL)</label>
-          <input id="picture" name="picture" type="text" [(ngModel)]="veterinary.picture" />
-        </div>
-
-        <button type="submit">Guardar Cambios</button>
-      </form>
-    </div>
-  </section>
+			<button type="submit">Guardar Cambios</button>
+		</form>
+	</div>
+</section>
