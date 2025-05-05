@@ -22,14 +22,18 @@
 					<a [routerLink]="[pet.id]" class="btn btn-primary" *ngIf="!pet.disabled">
 						<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
 					</a>
+					<a [routerLink]="['/veterinarian/procedures',pet.id]" class="btn btn-tertiary" *ngIf="!pet.disabled">
+						<ion-icon name="medkit"></ion-icon>
+					</a>
 
 					<button class="btn btn-secondary" (click)="toggleStatus(pet.id, false)" *ngIf="!pet.disabled">
 						<ion-icon name="trash-bin"></ion-icon>
-						&nbsp;Desactivar
+						&nbsp;
 					</button>
 
+
 					<button class="btn btn-secondary" (click)="toggleStatus(pet.id, true)" *ngIf="pet.disabled">
-						&nbsp;Activar
+						&nbsp;
 					</button>
 				</td>
 			</tr>

@@ -12,6 +12,8 @@ import { ViewComponent as UserViewComponent } from '../../shared/users/view/view
 import { EditComponent as UserEditComponent } from '../../shared/users/edit/edit.component';
 import { CreateComponent as UserCreateComponent } from '../../shared/users/create/create.component';
 
+import { ProcedureCreateComponent } from '../../shared/procedures/create/create.component';
+
 import { UploadComponent } from '../../shared/medicine/upload/upload.component';
 import { PanelContext } from 'src/app/app-routing.module';
 
@@ -33,6 +35,7 @@ const routes: Routes = [
 			{ path: 'users/:id/edit', component: UserEditComponent, data: { context: PanelContext.Veterinarian }  },
 
 			{ path: 'medicine', component: UploadComponent },
+			{ path: 'procedures/:id', component: ProcedureCreateComponent}
 		],
 	},
 ];

@@ -1,1 +1,26 @@
-<p>create works!</p>
+<section>
+    <h2>Asignar Tratamiento</h2>
+
+    <form (ngSubmit)="assignTreatment()">
+      <label>Notas</label>
+      <textarea [(ngModel)]="treatment.notes" name="notes" required></textarea>
+
+      <label>Cantidad de Medicina</label>
+      <input type="number" [(ngModel)]="treatment.quantity" name="quantity" min="1" required />
+
+      <label>Medicina</label>
+      <select [(ngModel)]="treatment.medicineId" name="medicineId" required>
+        <option value="" disabled selected>Selecciona una medicina</option>
+        <option *ngFor="let m of medicines" [value]="m.id">{{ m.name }}</option>
+      </select>
+
+      <label>Veterinario</label>
+      <select [(ngModel)]="treatment.veterinaryId" name="veterinaryId" required>
+        <option value="" disabled selected>Selecciona un veterinario</option>
+        <option *ngFor="let v of veterinaries" [value]="v.id">{{ v.name }}</option>
+      </select>
+
+
+      <button type="submit">Asignar</button>
+    </form>
+  </section>

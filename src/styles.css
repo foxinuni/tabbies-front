@@ -28,7 +28,8 @@ body {
 
 /* General components */
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-tertiary {
 		/* Display */
 		display: flex;
 		flex-direction: row;
@@ -84,3 +85,12 @@ body {
     /* Hover */
 	background-color: rgb(92.65, 110.3857142857, 226.35);
 }
+
+.btn-tertiary {
+	/* Background */
+	background-color: rgb(173, 255, 115);
+
+	/* Text */
+	color: #fdfdfd;
+}
+

@@ -31,4 +31,7 @@ export class ProcedureService {
 	public deleteProcedure(id: number): Observable<void> {
 		return this.http.delete<void>(`${config.backend_endpoint}/procedures/${id}`);
 	}
+	public getProceduresByPetId(petId: number): Observable<ProcedureView[]> {
+		return this.http.get<ProcedureView[]>(`${config.backend_endpoint}/procedures?petId=${petId}`);
+	}
 }

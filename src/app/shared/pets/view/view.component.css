@@ -23,11 +23,14 @@ section {
 }
 
 /* Ajustar la tarjeta */
+/* Asegúrate de que la tarjeta y sus secciones respeten el flujo del contenido */
 .card {
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    margin-bottom: 2rem; /* Añade un margen inferior para separar las secciones */
     background: white;
     border-radius: 1.5rem;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     width: 550px; /* Ajusta este valor según sea necesario */
 }
@@ -71,6 +74,9 @@ section {
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+
+	width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+
 }
 
 .pet-info {
@@ -85,5 +91,19 @@ section {
 
 .pet-info p span {
     font-weight: normal;
+}
+
+.procedures-section {
+    margin-top: 2rem; /* Añade un margen superior para separar las secciones */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+    display: block; /* Asegúrate de que sea un bloque y no se superponga */
+}
+
+section.pet-details {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos dentro de la sección se apilen verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    overflow: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
 }
 

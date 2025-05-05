@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs';
 import { PetService } from 'lib/services/pet.service';
 import { ModelMapper } from 'lib/services/model-mapper.service';
 import Pet from 'lib/entities/pet';
+import { ProcedureService } from 'lib/services/procedure.service';
 
 @Component({
 	selector: 'pet-view',
@@ -12,10 +13,12 @@ import Pet from 'lib/entities/pet';
 })
 export class ViewComponent {
 	public pet: Pet | undefined;
+	public procedures: any[] = [];
 
 	constructor(
 		private readonly route: ActivatedRoute,
 		private readonly petService: PetService,
+		private readonly procedureService: ProcedureService,
 		private readonly modelMapper: ModelMapper
 	) { }
 
@@ -27,5 +30,9 @@ export class ViewComponent {
 		).subscribe(pet => {
 			this.pet = pet
 		})
+		this.procedureService.getProceduresByPetId(id).subscribe(procedures => {
+			this.procedures = procedures;
+			console.log('Procedures:', this.procedures); // Debugging: Log the procedures array
+		});
 	}
 }
