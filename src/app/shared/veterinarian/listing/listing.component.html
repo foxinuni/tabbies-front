@@ -19,7 +19,7 @@
             <a [routerLink]="[veterinary.id]" class="btn-primary">
 				<ion-icon name="list-circle-outline" class="detalles"></ion-icon>
 			</a>
-            <button (click)="deleteVeterinary(veterinary.id)" class="btn-secondary">
+            <button (click)="deleteVeterinary(veterinary.id)" class="btn-secondary" *ngIf="veterinary.role !== 'Admin'">
 				<ion-icon name="trash-bin"></ion-icon>&nbsp;Eliminar
 			</button>
           </td>

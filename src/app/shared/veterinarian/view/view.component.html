@@ -27,7 +27,7 @@
 			</div>
 			<span>
 				<a class="btn-primary" [routerLink]="['..']">Volver</a>
-				<a class="btn-secondary" [routerLink]="['edit']">Editar</a>
+				<a class="btn-secondary" [routerLink]="['edit']" *ngIf="veterinary.role !== 'Admin'">Editar</a>
 			</span>
 		</div>
 	</div>
