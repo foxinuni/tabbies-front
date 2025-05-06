@@ -7,6 +7,7 @@ import { VeterinarianService } from 'lib/services/veterinarian.service';
 import Medicine from 'lib/entities/medicine';
 import Veterinary from 'lib/entities/veterinary';
 import { getPathForContext } from 'src/app/app-routing.module';
+import { switchMap } from 'rxjs';
 
 @Component({
 	selector: 'procedure-create',
@@ -16,6 +17,7 @@ import { getPathForContext } from 'src/app/app-routing.module';
 export class CreateComponent {
 	medicines: Medicine[] = [];
 	veterinaries: Veterinary[] = [];
+	self: Veterinary | null = null;
 
 	treatment: ProcedureUpsert = {
 		notes: '',
@@ -56,6 +58,16 @@ export class CreateComponent {
 	}
 
 	loadVeterinaries(): void {
+		this.veterinaryService.getSelf().pipe(
+			switchMap((self) => {
+				this.treatment.veterinaryId = self.id;
+				return this.veterinaryService.getVetById(self.id);
+			}
+		)).subscribe((self) => {
+			this.self = self;
+			this.treatment.veterinaryId = self.id;
+		});
+
 		this.veterinaryService.getAllVets().subscribe({
 			next: (data) => {
 				this.veterinaries = data;

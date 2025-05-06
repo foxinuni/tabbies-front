@@ -22,10 +22,10 @@
 
 			<span class="input-span">
                 <label for="veterinaryId">Veterinario</label>
-                <select id="veterinaryId" [(ngModel)]="treatment.veterinaryId" name="veterinaryId" required>
-                    <option value="" disabled selected>Selecciona un veterinario</option>
-                    <option *ngFor="let v of veterinaries" [value]="v.id">{{ v.name }}</option>
-                </select>
+				<select id="veterinaryId" [(ngModel)]="treatment.veterinaryId" name="veterinaryId" [disabled]="self != null" required>
+					<option value="" disabled selected>Selecciona un veterinario</option>
+					<option *ngFor="let v of veterinaries" [value]="v.id" [selected]="v.id === self?.id">{{ v.name }}</option>
+				</select>
 			</span>
 
 			<span>

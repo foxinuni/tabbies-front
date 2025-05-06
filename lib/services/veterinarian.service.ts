@@ -31,4 +31,8 @@ export class VeterinarianService {
 	public deleteVet(id: number): Observable<void> {
 		return this.http.delete<void>(`${config.backend_endpoint}/veterinarians/${id}`);
 	}
+
+	public getSelf(): Observable<VeterinarianView> {
+		return this.http.get<VeterinarianView>(`${config.backend_endpoint}/veterinarians/@me`, { withCredentials: true });
+	}
 }

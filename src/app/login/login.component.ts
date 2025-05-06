@@ -24,7 +24,7 @@ export class LoginComponent {
 				this.loginClient();
 				break;
 			case 'admin':
-				this.router.navigate(['/admin']);
+				this.loginAdmin();
 				break;
 			case 'vet':
 				this.loginVet();
@@ -48,6 +48,18 @@ export class LoginComponent {
 		this.loginService.loginVet(this.email, this.password).subscribe({
 			next: () => {
 				this.router.navigate(['/veterinarian']);
+			},
+			error: (error) => {
+				console.log(error);
+				this.errorMessage = 'Invalid username or password';
+			}
+		});
+	}
+
+	public loginAdmin(): void {
+		this.loginService.loginVet(this.email, this.password).subscribe({
+			next: () => {
+				this.router.navigate(['/admin']);
 			},
 			error: (error) => {
 				console.log(error);
