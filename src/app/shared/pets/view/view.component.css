@@ -30,7 +30,7 @@ section {
     margin-bottom: 2rem; /* Añade un margen inferior para separar las secciones */
     background: white;
     border-radius: 1.5rem;
-    overflow: auto;
+    overflow: visible;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     width: 550px; /* Ajusta este valor según sea necesario */
 }
@@ -42,6 +42,8 @@ section {
     flex-direction: column;
     align-items: center;
     position: relative;
+	border-top-left-radius: 1.5rem;
+	border-top-right-radius: 1.5rem;
 }
 
 .top-section h1 {
@@ -52,9 +54,9 @@ section {
 }
 
 .top-section .img-con {
-		width: 12rem;
-		height: 12rem;
-		transform: translate(0, -10%);
+	width: 12rem;
+	height: 12rem;
+	transform: translate(0, -10%);
 }
 
 .top-section img {
@@ -73,10 +75,11 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+	border-bottom-left-radius: 1.5rem;
+	border-bottom-right-radius: 1.5rem;
     gap: 2rem;
 
 	width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
-
 }
 
 .pet-info {
@@ -95,8 +98,23 @@ section {
 
 .procedures-section {
     margin-top: 2rem; /* Añade un margen superior para separar las secciones */
-    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+    width: 75%; /* Asegúrate de que ocupe todo el ancho disponible */
     display: block; /* Asegúrate de que sea un bloque y no se superponga */
+
+	background-color: #fdfdfd;
+    border-radius: 1.5rem;
+
+	display: flex;
+	flex-direction: column; /* Asegura que los elementos dentro de la sección se apilen verticalmente */
+	align-items: center; /* Centra los elementos horizontalmente */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+	padding: 2rem; /* Añade un padding interno para separar el contenido del borde */
+	margin-bottom: 2rem; /* Añade un margen inferior para separar las secciones */
+}
+
+.procedures-section > span {
+	width: 100%;
 }
 
 section.pet-details {
@@ -107,3 +125,53 @@ section.pet-details {
     overflow: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
 }
 
+table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 20px 0;
+	font-size: 18px;
+	text-align: left;
+	color: #333;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+table th,
+table td {
+	padding: 12px 15px;
+}
+
+table th {
+	background-color: #fbacac;
+	color: #fdfdfd;
+	font-weight: bold;
+}
+
+table tr:nth-of-type(even) {
+	background-color: rgb(251, 191.75, 172);
+	color: #fdfdfd;
+}
+
+table tr:nth-of-type(odd) {
+	background-color: rgb(255, 255, 255);
+}
+
+table tr:hover {
+	background-color: rgb(240.25, 240.25, 240.25);
+}
+
+table tr:hover:nth-of-type(even) {
+	background-color: rgb(248.6551724138, 144.2298850575, 123.3448275862);
+}
+
+table tr:last-child td {
+	border-bottom: none;
+}
+
+table th,
+table td {
+	text-align: center;
+	padding: 20px;
+}

@@ -25,7 +25,7 @@ import { ViewComponent as MyPetsViewComponent } from './my-pets/view/view.compon
 
 import { UploadComponent as MedicineUploadComponent } from './medicine/upload/upload.component';
 
-import { CreateComponent as ProcedureCreateComponent } from './procedures/create/create.component';
+import { CreateComponent as ProcedureCreateComponent } from './pets/procedure/create.component';
 
 import { ListingComponent as VetListingComponent } from './veterinarian/listing/listing.component';
 import { ViewComponent as VetViewComponent } from './veterinarian/view/view.component';

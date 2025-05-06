@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { PanelContext } from 'src/app/app-routing.module';
 
-
 import { DashboardComponent } from '../../shared/dashboard/dashboard.component';
 
 import { ListingComponent as PetListingComponent } from '../../shared/pets/listing/listing.component';
 import { CreateComponent as PetCreateComponent } from '../../shared/pets/create/create.component';
 import { ViewComponent as PetViewComponent } from '../../shared/pets/view/view.component';
 import { EditComponent as PetEditComponent } from '../../shared/pets/edit/edit.component';
+import { CreateComponent as PetProcedureComponent } from '../../shared/pets/procedure/create.component';
 
 import { ListingComponent as UserListingComponent } from '../../shared/users/listing/listing.component';
 import { ViewComponent as UserViewComponent } from '../../shared/users/view/view.component';
@@ -30,12 +30,14 @@ const routes: Routes = [
 		children: [
             { path: '', redirectTo: 'pets', pathMatch: 'full' },
 
-			{ path: 'dashboard',component: DashboardComponent, data: { context: PanelContext.Admin } },
+			{ path: 'dashboard', component: DashboardComponent, data: { context: PanelContext.Admin } },
 
 			{ path: 'pets', component: PetListingComponent, data: { context: PanelContext.Admin } },
 			{ path: 'pets/add', component: PetCreateComponent, data: { context: PanelContext.Admin } },
 			{ path: 'pets/:id', component: PetViewComponent, data: { context: PanelContext.Admin } },
 			{ path: 'pets/:id/edit', component: PetEditComponent, data: { context: PanelContext.Admin } },
+			{ path: 'pets/:id/procedure', component: PetProcedureComponent, data: { context: PanelContext.Admin } },
+
 
 			{ path: 'users', component: UserListingComponent, data: { context: PanelContext.Admin } },
 			{ path: 'users/add', component: UserCreateComponent, data: { context: PanelContext.Admin } },

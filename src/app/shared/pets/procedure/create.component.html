@@ -1,35 +1,36 @@
 <section>
-    <div class="card">
-        <h2>Asignar Tratamiento</h2>
-
-        <form (ngSubmit)="assignTreatment()" class="form">
-            <div class="input-span">
+	<div class="card">
+		<h1>Asignar Tratamiento</h1>
+		<form (ngSubmit)="assignTreatment()" class="form">
+			<span class="input-span">
                 <label for="notes">Notas</label>
                 <textarea id="notes" [(ngModel)]="treatment.notes" name="notes" required></textarea>
-            </div>
+			</span>
 
-            <div class="input-span">
+			<span class="input-span">
                 <label for="quantity">Cantidad de Medicina</label>
                 <input type="number" id="quantity" [(ngModel)]="treatment.quantity" name="quantity" min="1" required />
-            </div>
+			</span>
 
-            <div class="input-span">
+			<span class="input-span">
                 <label for="medicineId">Medicina</label>
                 <select id="medicineId" [(ngModel)]="treatment.medicineId" name="medicineId" required>
                     <option value="" disabled selected>Selecciona una medicina</option>
                     <option *ngFor="let m of medicines" [value]="m.id">{{ m.name }}</option>
                 </select>
-            </div>
+			</span>
 
-            <div class="input-span">
+			<span class="input-span">
                 <label for="veterinaryId">Veterinario</label>
                 <select id="veterinaryId" [(ngModel)]="treatment.veterinaryId" name="veterinaryId" required>
                     <option value="" disabled selected>Selecciona un veterinario</option>
                     <option *ngFor="let v of veterinaries" [value]="v.id">{{ v.name }}</option>
                 </select>
-            </div>
+			</span>
 
-            <button type="submit">Asignar</button>
-        </form>
-    </div>
+			<span>
+				<button type="submit" class="btn btn-primary">Asignar</button>
+			</span>
+		</form>
+	</div>
 </section>

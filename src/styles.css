@@ -30,11 +30,11 @@ body {
 .btn-primary,
 .btn-secondary,
 .btn-tertiary {
-		/* Display */
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
+	/* Display */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 
     /* Spacing */
     padding: 0.5em 1em;
@@ -87,9 +87,13 @@ body {
 
 .btn-tertiary {
 	/* Background */
-	background-color: rgb(173, 255, 115);
+	background-color: rgba(16,219,148,255);
 
 	/* Text */
 	color: #fdfdfd;
 }
 
+.btn-tertiary:hover {
+	/* Hover */
+	background-color: rgba(16, 219, 148, 0.8);
+}

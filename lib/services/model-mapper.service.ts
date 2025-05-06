@@ -62,9 +62,9 @@ export class ModelMapper {
 
 	public procedureViewToEntity(dto: ProcedureView): Observable<Procedure> {
 		return forkJoin([
-			this.vetService.getVetById(dto.veterinaryId).pipe(switchMap(this.vetViewToEntity)),
-			this.petService.getPetById(dto.petId).pipe(switchMap(this.petViewToEntity)),
-			this.medicineService.getMedicineById(dto.medicineId).pipe(switchMap(this.medicineViewToEntity)),
+			this.vetService.getVetById(dto.veterinaryId).pipe(switchMap((vet) => this.vetViewToEntity(vet))),
+			this.petService.getPetById(dto.petId).pipe(switchMap((pet) => this.petViewToEntity(pet))),
+			this.medicineService.getMedicineById(dto.medicineId).pipe(switchMap((medicine) => this.medicineViewToEntity(medicine))),
 		]).pipe(
 			map(([veterinarian, pet, medicine]) => ({ ...dto, veterinarian, pet, medicine })),
 		);

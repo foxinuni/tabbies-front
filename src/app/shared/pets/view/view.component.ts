@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { forkJoin, switchMap } from 'rxjs';
 import { PetService } from 'lib/services/pet.service';
 import { ModelMapper } from 'lib/services/model-mapper.service';
 import Pet from 'lib/entities/pet';
 import { ProcedureService } from 'lib/services/procedure.service';
+import Procedure from 'lib/entities/procedure';
 
 @Component({
 	selector: 'pet-view',
@@ -13,7 +14,7 @@ import { ProcedureService } from 'lib/services/procedure.service';
 })
 export class ViewComponent {
 	public pet: Pet | undefined;
-	public procedures: any[] = [];
+	public procedures: Procedure[] = [];
 
 	constructor(
 		private readonly route: ActivatedRoute,
@@ -30,9 +31,15 @@ export class ViewComponent {
 		).subscribe(pet => {
 			this.pet = pet
 		})
-		this.procedureService.getProceduresByPetId(id).subscribe(procedures => {
+
+		this.procedureService.getProceduresByPetId(id).pipe(
+			switchMap(models => {
+				const procedures = models.map(model => this.modelMapper.procedureViewToEntity(model));
+				return forkJoin(procedures);
+			})
+		).subscribe(procedures => {
+			console.log('Procedures:', procedures);
 			this.procedures = procedures;
-			console.log('Procedures:', this.procedures); // Debugging: Log the procedures array
 		});
 	}
 }

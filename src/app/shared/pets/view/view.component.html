@@ -1,9 +1,9 @@
 <section *ngIf="pet" class="pet-details">
     <div class="card">
-        <div class="top-section">
-            <h1>{{ pet.name }}</h1>
+		<div class="top-section">
+			<h1>{{ pet.name }}</h1>
             <div class="img-con">
-                <img [src]="pet.picture" alt="Pet Picture" />
+				<img [src]="pet.picture" alt="Pet Picture" />
             </div>
         </div>
         <div class="bottom-section">
@@ -27,14 +27,28 @@
             </span>
         </div>
     </div>
-    <div class="procedures-section">
-        <h2>Procedimientos</h2>
-        <ul *ngIf="procedures.length > 0; else noProcedures">
-            <li *ngFor="let procedure of procedures">
-                <strong>{{ procedure.id }}</strong> - {{ procedure.notes }} - {{procedure.quantity}} 
-        </ul>
-        <ng-template #noProcedures>
-            <p>No hay procedimientos registrados para esta mascota.</p>
-        </ng-template>
-    </div>
+	<div class="procedures-section">
+		<span><h2>Procedimientos</h2></span>
+		<table *ngIf="procedures.length > 0; else noProcedures" class="procedures-table">
+			<thead>
+				<tr>
+					<th>Notas</th>
+					<th>Medicina</th>
+					<th>Cantidad</th>
+					<th>Veterinario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let procedure of procedures">
+					<td>{{ procedure.notes }}</td>
+					<td>{{ procedure.medicine?.name || 'ninguno' }}</td>
+					<td>{{ procedure.quantity }}</td>
+					<td>{{ procedure.veterinarian?.name || 'desconocido' }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<ng-template #noProcedures>
+			<p>No hay procedimientos registrados para esta mascota.</p>
+		</ng-template>
+	</div>
 </section>
