@@ -1,6 +1,6 @@
 <section>
 	<div class="card">
-		<h1>Crear Nueva Mascota</h1>
+		<h1>Crear Nuevo Usuario</h1>
 		<form (ngSubmit)="createUser()" class="form">
 			<span class="input-span">
 				<label for="name">Nombre:</label>
@@ -13,7 +13,7 @@
 			</span>
 			<span class="input-span">
 				<label for="hash">Contraseña:</label>
-				<input type="password" [(ngModel)]="user.hash" name="hash" />
+				<input type="password" id = "hash" [(ngModel)]="user.hash" name="hash" />
 			</span>
 
 			<span class="input-span">
@@ -29,7 +29,7 @@
 			<input type="hidden" [(ngModel)]="user.id" name="id" />
 
 			<span>
-				<button type="submit" class="btn btn-primary">Crear Mascota</button>
+				<button type="submit" id = "crear" class="btn btn-primary">Crear Usuario</button>
 			</span>
 		</form>
 	</div>
