@@ -91,12 +91,41 @@ export class CreateComponent {
 		this.treatment.medicineId = Number(this.treatment.medicineId);
 		this.treatment.veterinaryId = Number(this.treatment.veterinaryId);
 
-		console.log(this.treatment.veterinaryId)
 
 		console.log('Asignando tratamiento:', this.treatment);
 
 		this.procedureService.createProcedure(this.treatment).subscribe(() => {
+			if (this.treatment.medicineId !== null) {
+				this.updateMedicineStock(this.treatment.medicineId, this.treatment.quantity);
+			} else {
+				console.error('Medicine ID is null.');
+			}
 			this.router.navigate([path, 'pets', this.petId]);
+		});
+
+
+	}
+
+	updateMedicineStock(medicineId: number, quantity: number): void {
+		const medicine = this.medicines.find(m => m.id === medicineId);
+		if (!medicine) {
+			console.error('Medicina no encontrada.');
+			return;
+		}
+
+		const updatedMedicine = {
+			...medicine,
+			stock: medicine.stock - quantity, // Reducir el stock
+			sold: (medicine.sold || 0) + quantity // Aumentar el valor de sold
+		};
+
+		this.medicineService.updateMedicine(medicineId, updatedMedicine).subscribe({
+			next: () => {
+				console.log('Stock y sold actualizados correctamente.');
+			},
+			error: (err) => {
+				console.error('Error al actualizar el stock de la medicina:', err);
+			}
 		});
 	}
 }
