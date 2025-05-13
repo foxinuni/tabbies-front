@@ -91,6 +91,8 @@ export class CreateComponent {
 		this.treatment.medicineId = Number(this.treatment.medicineId);
 		this.treatment.veterinaryId = Number(this.treatment.veterinaryId);
 
+		console.log(this.treatment.veterinaryId)
+
 		console.log('Asignando tratamiento:', this.treatment);
 
 		this.procedureService.createProcedure(this.treatment).subscribe(() => {
