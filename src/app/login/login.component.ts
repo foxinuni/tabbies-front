@@ -45,7 +45,7 @@ export class LoginComponent {
 			switchMap(() => this.loginService.self())
 		).subscribe({
 			next: (user) => {
-				if (user.role === 'client') {
+				if (user.role === 'user') {
 					this.router.navigate(['/client']);
 				} else if (user.role === 'veterinary') {
 					this.router.navigate(['/veterinarian']);
