@@ -13,23 +13,23 @@ export class VeterinarianService {
 	) {}
 
 	public getAllVets(): Observable<VeterinarianView[]> {
-		return this.http.get<VeterinarianView[]>(`${config.backend_endpoint}/veterinarians/`);
+		return this.http.get<VeterinarianView[]>(`${config.backend_endpoint}/veterinarians/`, { withCredentials: true });
 	}
 
 	public getVetById(id: number): Observable<VeterinarianView> {
-		return this.http.get<VeterinarianView>(`${config.backend_endpoint}/veterinarians/${id}`);
+		return this.http.get<VeterinarianView>(`${config.backend_endpoint}/veterinarians/${id}`, { withCredentials: true });
 	}
 
 	public createVet(dto: VeterinarianUpsert): Observable<VeterinarianView> {
-		return this.http.post<VeterinarianView>(`${config.backend_endpoint}/veterinarians/`, dto);
+		return this.http.post<VeterinarianView>(`${config.backend_endpoint}/veterinarians/`, dto, { withCredentials: true });
 	}
 
 	public updateVet(id: number, dto: VeterinarianUpsert): Observable<VeterinarianView> {
-		return this.http.put<VeterinarianView>(`${config.backend_endpoint}/veterinarians/${id}`, dto);
+		return this.http.put<VeterinarianView>(`${config.backend_endpoint}/veterinarians/${id}`, dto, { withCredentials: true });
 	}
 
 	public deleteVet(id: number): Observable<void> {
-		return this.http.delete<void>(`${config.backend_endpoint}/veterinarians/${id}`);
+		return this.http.delete<void>(`${config.backend_endpoint}/veterinarians/${id}`, { withCredentials: true });
 	}
 
 	public getSelf(): Observable<VeterinarianView> {

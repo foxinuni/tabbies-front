@@ -11,24 +11,23 @@ export class UserService {
 	constructor(
 		private readonly http: HttpClient
 	) {}
-
 	public getAllUsers(): Observable<UserView[]> {
-		return this.http.get<UserView[]>(`${config.backend_endpoint}/users/`);
+		return this.http.get<UserView[]>(`${config.backend_endpoint}/users/`, { withCredentials: true });
 	}
 
 	public getUserById(id: number): Observable<UserView> {
-		return this.http.get<UserView>(`${config.backend_endpoint}/users/${id}`);
+		return this.http.get<UserView>(`${config.backend_endpoint}/users/${id}`, { withCredentials: true });
 	}
 
 	public createUser(dto: UserUpsert): Observable<UserView> {
-		return this.http.post<UserView>(`${config.backend_endpoint}/users/`, dto);
+		return this.http.post<UserView>(`${config.backend_endpoint}/users/`, dto, { withCredentials: true });
 	}
 
 	public updateUser(id: number, dto: UserUpsert): Observable<UserView> {
-		return this.http.put<UserView>(`${config.backend_endpoint}/users/${id}`, dto);
+		return this.http.put<UserView>(`${config.backend_endpoint}/users/${id}`, dto, { withCredentials: true });
 	}
 
 	public deleteUser(id: number): Observable<void> {
-		return this.http.delete<void>(`${config.backend_endpoint}/users/${id}`);
+		return this.http.delete<void>(`${config.backend_endpoint}/users/${id}`, { withCredentials: true });
 	}
 }

@@ -14,26 +14,26 @@ export class PetService {
 	) {}
 
 	public getAllPets(): Observable<PetView[]> {
-		return this.http.get<PetView[]>(`${config.backend_endpoint}/pets/`);
+		return this.http.get<PetView[]>(`${config.backend_endpoint}/pets/`, { withCredentials: true });
 	}
 
 	public getPetById(id: number): Observable<PetView> {
-		return this.http.get<PetView>(`${config.backend_endpoint}/pets/${id}`);
+		return this.http.get<PetView>(`${config.backend_endpoint}/pets/${id}`, { withCredentials: true });
 	}
 
 	public createPet(dto: PetUpsert): Observable<PetView> {
-		return this.http.post<PetView>(`${config.backend_endpoint}/pets/`, dto);
+		return this.http.post<PetView>(`${config.backend_endpoint}/pets/`, dto, { withCredentials: true });
 	}
 
 	public updatePet(id: number, dto: PetUpsert): Observable<Pet> {
-		return this.http.put<Pet>(`${config.backend_endpoint}/pets/${id}`, dto);
+		return this.http.put<Pet>(`${config.backend_endpoint}/pets/${id}`, dto, { withCredentials: true });
 	}
 
 	public deletePet(id: number): Observable<void> {
-		return this.http.delete<void>(`${config.backend_endpoint}/pets/${id}`);
+		return this.http.delete<void>(`${config.backend_endpoint}/pets/${id}`, { withCredentials: true });
 	}
 
 	public setActive(id: number, active: boolean): Observable<PetView> {
-		return this.http.post<PetView>(`${config.backend_endpoint}/pets/${id}/status?active=${active}`, {});
+		return this.http.post<PetView>(`${config.backend_endpoint}/pets/${id}/status?active=${active}`, {}, { withCredentials: true });
 	}
 }
