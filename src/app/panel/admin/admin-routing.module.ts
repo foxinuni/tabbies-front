@@ -28,7 +28,7 @@ const routes: Routes = [
 		path: '',
 		component: AdminComponent,
 		children: [
-            { path: '', redirectTo: 'pets', pathMatch: 'full' },
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
 			{ path: 'dashboard', component: DashboardComponent, data: { context: PanelContext.Admin } },
 
