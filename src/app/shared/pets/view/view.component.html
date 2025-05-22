@@ -40,10 +40,10 @@
 			</thead>
 			<tbody>
 				<tr *ngFor="let procedure of procedures">
-					<td>{{ procedure.notes }}</td>
-					<td>{{ procedure.medicine?.name || 'ninguno' }}</td>
+					<td name="notas">{{ procedure.notes }}</td>
+					<td>{{ procedure.medicine.name || 'ninguno' }}</td>
 					<td>{{ procedure.quantity }}</td>
-					<td>{{ procedure.veterinarian?.name || 'desconocido' }}</td>
+					<td>{{ procedure.veterinarian.name || 'desconocido' }}</td>
 				</tr>
 			</tbody>
 		</table>
