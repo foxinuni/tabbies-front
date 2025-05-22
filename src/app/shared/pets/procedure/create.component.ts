@@ -7,7 +7,8 @@ import { VeterinarianService } from 'lib/services/veterinarian.service';
 import Medicine from 'lib/entities/medicine';
 import Veterinary from 'lib/entities/veterinary';
 import { getPathForContext } from 'src/app/app-routing.module';
-import { switchMap } from 'rxjs';
+import { forkJoin, switchMap } from 'rxjs';
+import { ModelMapper } from 'lib/services/model-mapper.service';
 
 @Component({
 	selector: 'procedure-create',
@@ -30,6 +31,7 @@ export class CreateComponent {
 	petId: number = 0;
 
 	constructor(
+		private modelMapper: ModelMapper,
 		private medicineService: MedicineService,
 		private veterinaryService: VeterinarianService,
 		private procedureService: ProcedureService,
@@ -59,23 +61,20 @@ export class CreateComponent {
 
 	loadVeterinaries(): void {
 		this.veterinaryService.getSelf().pipe(
-			switchMap((self) => {
-				this.treatment.veterinaryId = self.id;
-				return this.veterinaryService.getVetById(self.id);
-			}
-		)).subscribe((self) => {
+			switchMap(self => this.modelMapper.vetViewToEntity(self)),
+		).subscribe((self) => {
 			this.self = self;
 			this.treatment.veterinaryId = self.id;
 		});
 
-		this.veterinaryService.getAllVets().subscribe({
-			next: (data) => {
-				this.veterinaries = data;
-				console.log('Veterinaries:', this.veterinaries);
-			},
-			error: (err) => {
-				console.error('Error loading veterinaries:', err);
-			}
+		this.veterinaryService.getAllVets().pipe(
+			switchMap(models => {
+				const veterinarians = models.map(model => this.modelMapper.vetViewToEntity(model));
+				return forkJoin(veterinarians);
+			})
+		).subscribe(veterinaries => {
+			this.veterinaries = veterinaries;
+			console.log('Veterinaries:', this.veterinaries);
 		});
 	}
 

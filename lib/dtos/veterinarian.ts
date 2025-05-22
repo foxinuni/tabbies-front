@@ -12,6 +12,7 @@ export interface VeterinarianView {
 export interface VeterinarianUpsert {
 	name: string;
 	email: string;
+	password: string;
 	document: number;
 	number: number;
 	role: string;
