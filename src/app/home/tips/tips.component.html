@@ -1,0 +1,27 @@
+<div class="tip-wrapper">
+  <div class="tip-header">
+    <h2>Un consejito felino para hoy <span class="emoji">🐾</span></h2>
+    <p class="subtext">¡Cuida a tu gatito con amor y responsabilidad!</p>
+  </div>
+
+  <div class="tip-content">
+    <img src="assets/images/gato-con-cartel.png" alt="Gato con cartel" class="cat-image" />
+
+    <div class="tip-card">
+      <h3>Consejo para tu gato</h3>
+      <p *ngIf="tip">{{ tip }}</p>
+      <p *ngIf="!tip">Cargando tip...</p>
+    </div>
+  </div>
+
+  <div class="extra-info">
+    <div class="box">
+      <h4>¿Sabías que...?</h4>
+      <p>Los gatos duermen entre 12 y 16 horas al día. ¡Déjalos descansar!</p>
+    </div>
+    <div class="box">
+      <h4>Dato curioso</h4>
+      <p>Un gato puede saltar hasta seis veces su longitud. ¡Son acróbatas natos!</p>
+    </div>
+  </div>
+</div>

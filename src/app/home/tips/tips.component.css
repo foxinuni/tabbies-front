@@ -1,0 +1,90 @@
+.tip-wrapper {
+  background-color: #fefaff;
+  padding: 2rem;
+  border-radius: 25px;
+  border: 2px dashed #fbacac;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.tip-header h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #3d3d3d;
+  margin-bottom: 0.2rem;
+}
+
+.tip-header .subtext {
+  font-size: 1rem;
+  color: #6a6a6a;
+  margin-bottom: 1.5rem;
+}
+
+.tip-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+
+.cat-image {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+
+  margin: 0 auto;
+}
+
+
+.tip-card {
+  position: absolute;
+  bottom: 5%;
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  z-index: 1;
+  max-width: 300px;
+  width: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #e2e2e2;
+}
+
+.tip-card h3 {
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.tip-card p {
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.extra-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.box {
+  background-color: #fff4f8;
+  border-left: 4px solid #fbacac;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  width: 260px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.box h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.box p {
+  color: #555;
+  font-size: 0.9rem;
+}

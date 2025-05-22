@@ -16,6 +16,8 @@ import { AdminModule } from './panel/admin/admin.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { TipsComponent } from './home/tips/tips.component';
+import { TreatmentCounterComponent } from './home/treatment-counter/treatment-counter.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     NotFoundComponent,
     LoginComponent,
+    TipsComponent,
+    TreatmentCounterComponent,
   ],
   imports: [
     BrowserModule,
