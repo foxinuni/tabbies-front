@@ -45,7 +45,7 @@ export class ModelMapper {
 	}
 
 	public vetViewToEntity(dto: VeterinarianView): Observable<Veterinary> {
-		return of({ ...dto });
+		return of({ ...dto, password: '' });
 	}
 
 	public vetEntityToUpsert(model: Veterinary): Observable<VeterinarianUpsert> {

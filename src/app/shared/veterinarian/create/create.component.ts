@@ -17,6 +17,7 @@ export class CreateComponent {
 		id: 0,
 		name: '',
 		email: '',
+		password: '',
 		document: 0,
 		number: 0,
 		role: 'Veterinary',

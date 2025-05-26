@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VeterinarianService } from 'lib/services/veterinarian.service';
 import Veterinary from 'lib/entities/veterinary';
 import { ModelMapper } from 'lib/services/model-mapper.service';
+import { forkJoin, switchMap } from 'rxjs';
 
 @Component({
 	selector: 'veterinary-list',
@@ -22,9 +23,13 @@ export class ListingComponent implements OnInit {
 	}
 
 	loadVeterinaries(): void {
-		this.veterinaryService.getAllVets().subscribe({
-			next: (data) => this.veterinaries = data,
-			error: (error) => console.error(error)
+		this.veterinaryService.getAllVets().pipe(
+			switchMap(models => {
+				const veterinarians = models.map(model => this.modelMapper.vetViewToEntity(model));
+				return forkJoin(veterinarians);
+			})
+		).subscribe(veterinaries => {
+			this.veterinaries = veterinaries;
 		});
 	}
 

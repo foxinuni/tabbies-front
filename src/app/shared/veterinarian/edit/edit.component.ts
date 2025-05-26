@@ -25,11 +25,10 @@ export class EditComponent implements OnInit {
 
 	public ngOnInit(): void {
 		this.id = Number(this.route.snapshot.paramMap.get('id'));
-		this.veterinaryService.getVetById(this.id).subscribe({
-			next: (data: VeterinarianView) => {
-				this.veterinary = { ...data };
-			},
-			error: (error) => console.error(error),
+		this.veterinaryService.getVetById(this.id).pipe(
+			switchMap((model: VeterinarianView) => this.modelMapper.vetViewToEntity(model)),
+		).subscribe((veterinary: Veterinary) => {
+			this.veterinary = veterinary;
 		});
 	}
 
